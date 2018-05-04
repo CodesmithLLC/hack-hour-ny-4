@@ -16,28 +16,29 @@
 function drawStairs(n) {
   var starArr = []; 
   var spaceArr = []; 
-  var combined = []; 
 
+  var combinedStr = '';  
   var stars = ''; 
-	var spaces = '';
+  var spaces = '';
 
   for (let j = 0; j < n-1; j++) { 
     spaces += ' ';
     spaceArr.push(spaces); 
   }
 
-	for (let i = 0; i < n; i++) { 
-    stars += '*';
+  for (let i = 0; i < n; i++) { 
+    stars += '*'; 
     starArr.push(stars);  
   }//end for
 
   var starsIndex = 0;
-  for (let i = spaceArr.length-1; i > 0; i--) { 
-    combined.push(spaceArr[i].concat(starArr[starsIndex])); 
+  for (let i = spaceArr.length-1; i >= 0; i--) { 
+    combinedStr += spaceArr[i].concat(starArr[starsIndex]);
+    combinedStr += '\n';   
     starsIndex+=1;
   }//end for
 
-  console.log(combined); 
+  combinedStr += stars; 
 }
 
 
