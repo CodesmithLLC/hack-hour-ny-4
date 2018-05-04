@@ -14,7 +14,22 @@
 */
 
 function drawStairs(n) {
-
+  var counter = n;
+  var final = [];
+  for(var i = 0; i <= n; i++) {
+    var arr = [];
+    for(var j = 0; j <= n; j++) {
+      if(j < counter) {
+        arr[j] = ' '
+      } else {
+        arr[j] = '*'
+      }
+    }
+    var str = arr.join('');
+    final.push(str);
+    counter--;
+  }
+  return final.join('\n')
 }
 
 
