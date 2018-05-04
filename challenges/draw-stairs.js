@@ -14,8 +14,17 @@
 */
 
 function drawStairs(n) {
+    var x = 1;
+    for (i = 0; i < n; i++){
+      var nosteps = (' ').repeat(6 - x);
+      var steps = ('*').repeat(x);
+      console.log(nosteps + steps)
+      x += 1;
+    }
+ }
 
-}
 
 
 module.exports = drawStairs;
+
+//for (j = 0; j < n; j++)
