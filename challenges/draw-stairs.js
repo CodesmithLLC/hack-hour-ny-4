@@ -13,9 +13,13 @@
 
 */
 
+  
 function drawStairs(n) {
-
+  let stairCase = '';
+  for (let i = 1; i <= n; i++) {
+    output += ' '.repeat(n-i) + '*'.repeat(i-1) + '\n'
+  }
+  return stairCase; 
 }
-
 
 module.exports = drawStairs;
