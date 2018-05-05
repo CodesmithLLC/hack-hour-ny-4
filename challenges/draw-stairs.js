@@ -34,3 +34,15 @@ function drawStairs(n) {
 
 
 module.exports = drawStairs;
+
+// instructor's approach
+
+function drawStairs(n, stars = '') {
+  if(n === 0) {
+    console.log(stars);
+  } else {
+    console.log(' '.repeat(n) + stars);
+    drawStairs(n - 1, stars + '*');
+  }
+}
+
