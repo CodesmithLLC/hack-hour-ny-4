@@ -13,24 +13,13 @@
 
 */
 
+  
 function drawStairs(n) {
-  
-    let base = '';
-    for (let i = 1; i <= n; i++) {
-      base += '*';
-    }
-    let baseStair = base;
-    
-    let staircase = [];
-    console.log(staircase)
-  
-    while (baseStair.length <= 1) {
-    let nextStair = baseStair.slice(0)
-    staircase.push(nextStair);
-    console.log(nextStair);
+  let stairCase = '';
+  for (let i = 1; i <= n; i++) {
+    output += ' '.repeat(n-i) + '*'.repeat(i-1) + '\n'
   }
-  }
-  
-
+  return stairCase; 
+}
 
 module.exports = drawStairs;
