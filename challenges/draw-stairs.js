@@ -13,9 +13,18 @@
 
 */
 
+// outside loop = row
+// inside loop = columns
 function drawStairs(n) {
-
+var string = '';
+var space = ' ';
+var stars = '*';
+    for (let i = 1; i <= n; i++) {
+        string += '\n' + space.repeat(n-i) + stars.repeat(i);
+    }
+return string;
 }
 
+console.log(drawStairs(6));
 
 module.exports = drawStairs;
