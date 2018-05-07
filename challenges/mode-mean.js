@@ -31,6 +31,7 @@
 // };
 
 // const test = [1, 14, 14, 16, 21, 21];
+// const test = [1, 1, 1, 2, 2, 2];
 
 function modemean(array) {
   const mean = Math.floor(array.reduce((sum, val) => sum + val) / array.length);
