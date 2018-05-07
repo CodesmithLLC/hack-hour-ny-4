@@ -44,4 +44,4 @@ function modemean(array) {
   // return mean === modeMax(array);
 }
 // console.log(modemean(test));
-// module.exports = modemean;
+module.exports = modemean;
