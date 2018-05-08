@@ -28,5 +28,14 @@ function drawStairs(n) {
     }
 }
 
+function solution(n, stars = '') {
+    if (n === 0) {
+        console.log(stars);
+    } else {
+        console.log( ' '.repeat(n) + stars );
+        solution(n-1, stars+'*');
+    }
+}
+
 
 module.exports = drawStairs;
