@@ -46,6 +46,6 @@ function Node(val) {
   c.next = d;
   d.next = e;
 
-  console.log(kthToLastNode(3,a));
+  //console.log(kthToLastNode(3,a));
   
   module.exports = {Node: Node, kthToLastNode: kthToLastNode};
