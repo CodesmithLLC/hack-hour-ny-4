@@ -1,3 +1,4 @@
+
 /**
  * Write a function that takes two parameters, an integer and the head of a
  * singly linked list, and returns the VALUE on the kth to last node in the list.
@@ -22,7 +23,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+  let currentNode = head;
+  let memObj = {};
+  while (5 === 5){
+    memObj[currentNode.value] = 0;
+    for (key in memObj){
+      memObj[key]++;
+    }
+    console.log(memObj);
+    if (currentNode.next === null) {
+      break;
+    };
+    currentNode = currentNode.next;
+  }
+  for (key in memObj){
+    if (memObj[key] === k) return key;
+  }
 }
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
