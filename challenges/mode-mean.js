@@ -38,7 +38,6 @@ function modemean(array) {
     
 }
 
-
 console.log(modemean([3,2,4,1,2,2,4]));
 
 
