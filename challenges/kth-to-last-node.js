@@ -28,13 +28,15 @@ function kthToLastNode(k, head) {
     count++;
     current = current.next;
   }
-  
+
+  if(k > count) return undefined;
+
   let result = head;
   let n = count - k;
   for(let i = 0; i < n; i++) {
     result = result.next;
   }
-  if(result) return result.value;
+  return result.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
