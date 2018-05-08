@@ -31,6 +31,9 @@ function Node(val) {
           currNode = currNode.next;
       }
       nodeArr.push(currNode);
+      if (nodeArr[nodeCount - k + 1] === undefined || nodeArr[nodeCount - k + 1] === null){
+          return undefined;
+      }
      
       return nodeArr[nodeCount - k + 1].value;
   }
@@ -46,6 +49,6 @@ function Node(val) {
   c.next = d;
   d.next = e;
 
-  //console.log(kthToLastNode(3,a));
+  //console.log(kthToLastNode(4,a));
   
   module.exports = {Node: Node, kthToLastNode: kthToLastNode};
