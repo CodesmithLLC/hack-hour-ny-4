@@ -17,6 +17,7 @@
  */
 
 function Node(val) {
+<<<<<<< HEAD
     this.value = val;
     this.next = null;
   }
@@ -52,3 +53,14 @@ function Node(val) {
   //console.log(kthToLastNode(4,a));
   
   module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+=======
+  this.value = val;
+  this.next = null;
+}
+
+function kthToLastNode(k, head) {
+
+}
+
+module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+>>>>>>> 05e9e8999607914c1bc817c3975d8afe09f40a6b
