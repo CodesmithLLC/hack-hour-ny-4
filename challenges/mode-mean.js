@@ -33,7 +33,7 @@ function modemean(array) {
     }
   }
   if(highPoint[0] === average) return true;
-   else return false;
+  else return false;
 }
 
 module.exports = modemean;
