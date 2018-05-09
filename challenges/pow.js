@@ -6,7 +6,7 @@ function pow(base, pow, result = 1){
   if(pow === 0) return result;
   result *= base;
   pow--;
-  return powRecursive(base, pow, result);
+  return pow(base, pow, result);
 }
 
 module.exports = pow;
