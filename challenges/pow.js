@@ -2,7 +2,7 @@
  * Use recursion!
  */
 
-function powRecursive(base, pow, result = 1){
+function pow(base, pow, result = 1){
   if(pow === 0) return result;
   result *= base;
   pow--;
