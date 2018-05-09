@@ -13,9 +13,34 @@
 
 */
 
-function drawStairs(n) {
+// function drawStairs(n) {
+//   let stair = '';
+//   for (var i = n; i >= 0; i--) {
+   
+//   }
 
+//   // pattern = start at the bottom with n number of * , decrease as you go up 
+
+// }
+
+// solution 
+function drawStairs(n, stars = '') {
+    if (n === 0) 
+        console.log(stars)
+    else {
+        console.log( ' '.repeat(n) + stars );
+        drawStairs(n-1, stars+'*' );
+    }
 }
+// staircase going right to left 
+// function drawStairs(n) {
+// 	let stair = '';
+// 	while (n--) {
+// 		stair += '*';
+// 		console.log(stair);
+// 	}
+// }
 
+drawStairs(10);
 
 module.exports = drawStairs;
