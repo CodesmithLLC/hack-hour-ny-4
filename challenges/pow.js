@@ -2,7 +2,17 @@
  * Use recursion!
  */
 
-ffunction pow (base, power) {
+function pow (base, power) {
+
+  if (power < 0) {
+    Math.abs(power);
+    return 1 / mainPow (base, power);
+    
+  } else return mainPow (base, power); 
+  
+}
+
+function mainPow (base, power) {
   if (power === 0) return 1;
   if (power === 1) return base * power;
   else return base * pow(base, power-1);
