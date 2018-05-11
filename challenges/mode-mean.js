@@ -63,69 +63,69 @@ module.exports = modemean;
 
 // PETE SOLUTION 
 
-// helper functions - hold mode with array
-function modemean(array) {
-  return mean(array) === mode(array);
-}
+// // helper functions - hold mode with array
+// function modemean(array) {
+//   return mean(array) === mode(array);
+// }
 
-function mean(array) {
-  var sum = array.reduce(function(sum, el) {
-    return sum + el;
-  });
-  return Math.floor(sum / array.length);
-}
+// function mean(array) {
+//   var sum = array.reduce(function(sum, el) {
+//     return sum + el;
+//   });
+//   return Math.floor(sum / array.length);
+// }
 
-function mode(array) {
-  var count = {};
-  array.forEach(function(num) {
-    if (num in count) {
-      return count[num]++;
-    }
-    count[num] = 1;
-  });
-  var max = -Infinity;
-  var modeCandidates;
-  for (var num in count) {
-    if (count[num] > max) {
-      modeCandidates = [num];
-      max = count[num];
-    } else if (count[num] === max) {
-      modeCandidates.push(num);
-    }
-  }
-  return Math.max.apply(this, modeCandidates);
-}
+// function mode(array) {
+//   var count = {};
+//   array.forEach(function(num) {
+//     if (num in count) {
+//       return count[num]++;
+//     }
+//     count[num] = 1;
+//   });
+//   var max = -Infinity;
+//   var modeCandidates;
+//   for (var num in count) {
+//     if (count[num] > max) {
+//       modeCandidates = [num];
+//       max = count[num];
+//     } else if (count[num] === max) {
+//       modeCandidates.push(num);
+//     }
+//   }
+//   return Math.max.apply(this, modeCandidates);
+// }
 
-//------------------------
-// hold mode in object
+// //------------------------
+// // hold mode in object
 
-function modemean(array){
-  // solving for the mean
-  let mean = 0; let mode = 0; let modeCount = 0; let modeObj = {'currMode': -Infinity};
+// function modemean(array){
+//   // solving for the mean
+//   let mean = 0; let mode = 0; let modeCount = 0; let modeObj = {'currMode': -Infinity};
 
-  mean = array.reduce( (accum, next) => {
-    return accum + next;
-  }) / array.length;
+//   mean = array.reduce( (accum, next) => {
+//     return accum + next;
+//   }) / array.length;
 
-  // solve for the mode
-  for(let i = 0; i < array.length; i++){
-    if(modeObj[array[i]] != undefined){
-      modeObj[array[i]] += 1;
-    } else {
-      modeObj[array[i]] = 1
-    }
-    if(modeObj[array[i]] === modeCount){
-      if(array[i] > modeObj['currMode']){
-        mode = array[i];
-        modeObj['currMode'] = array[i];
-      }
-    } else if(modeObj[array[i]]> modeCount){
-      mode = array[i];
-      modeObj['currMode'] = array[i]
-      modeCount = modeObj[array[i]];
-    }
-    // console.log('modeObj: ', modeObj)
-  }
-  // console.log('mode, mean : ', mode, ' , ' , mean)
-  return mode === Math.floor(mean)
-}
+//   // solve for the mode
+//   for(let i = 0; i < array.length; i++){
+//     if(modeObj[array[i]] != undefined){
+//       modeObj[array[i]] += 1;
+//     } else {
+//       modeObj[array[i]] = 1
+//     }
+//     if(modeObj[array[i]] === modeCount){
+//       if(array[i] > modeObj['currMode']){
+//         mode = array[i];
+//         modeObj['currMode'] = array[i];
+//       }
+//     } else if(modeObj[array[i]]> modeCount){
+//       mode = array[i];
+//       modeObj['currMode'] = array[i]
+//       modeCount = modeObj[array[i]];
+//     }
+//     // console.log('modeObj: ', modeObj)
+//   }
+//   // console.log('mode, mean : ', mode, ' , ' , mean)
+//   return mode === Math.floor(mean)
+// }
