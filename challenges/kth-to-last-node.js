@@ -21,8 +21,48 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
+function singlyList(){
+  this._length = 0;
+  this.head = null
+}
 
+singlyList.prototype.add = function(value) {
+  let node = new Node(value),
+      currentNode = this.head;
+      
+  if (!currentNode) {
+      this.head = node;
+      this._length++;
+      return node;
+  }
+  
+  while (currentNode.next) {
+      currentNode = currentNode.next;
+  }
+  
+  currentNode.next = node;
+  this._length++;
+  return node;
+};
+
+function kthToLastNode(k, head) {
+  let length = this._length, count = 1;
+  while (count < k) {
+      console.log(head)
+      head = head.next;
+      console.log(head)
+      count++;
+  }
+
+  return head;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+console.log(singlyList())
+
+console.log(kthToLastNode(2, a));
