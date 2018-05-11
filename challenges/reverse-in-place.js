@@ -13,10 +13,28 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+//Solution 2
+function reverseInPlace2(array) {
   //while (array[])
   for (let i = 0; i < array.length; i++) {
     array.splice(i, 0, array.pop());
+  }
+  return array;
+}
+
+//Solution 1
+
+function reverseInPlace(array) {
+  let indexCount = 1;
+  const arrLen = array.length;
+  const midArr = array.length/2;
+
+  for (let i = 0; i < midArr; i++) {
+    let tempLeft = array[i];
+    let tempRight = array[arrLen - indexCount];
+    array[i] = tempRight;
+    array[arrLen - indexCount] = tempLeft;
+    indexCount++;
   }
   return array;
 }
