@@ -13,15 +13,6 @@
 
 */
 
-// function drawStairs(n) {
-//   let stair = '';
-//   for (var i = n; i >= 0; i--) {
-   
-//   }
-
-//   // pattern = start at the bottom with n number of * , decrease as you go up 
-
-// }
 
 // solution 
 function drawStairs(n, stars = '') {

@@ -30,7 +30,6 @@ function fizzbuzz(num) {
   } 
 }
 
-
 fizzbuzz(16);
 
 module.exports = fizzbuzz;
@@ -51,6 +50,7 @@ module.exports = fizzbuzz;
 //   }
 //   return arr;
 // }
+
 
 // solution 2 -- string concat
 // function fizzbuzz(num){

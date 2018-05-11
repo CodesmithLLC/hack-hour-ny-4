@@ -59,7 +59,7 @@ module.exports = {Node: Node, kthToLastNode: kthToLastNode};
 //   this.value = val;
 //   this.next = null;
 // }
-// // traversing through twice
+// traversing through twice
 
 // function kthToLastNode(k, head){
 //   let listLength = 0;
@@ -78,7 +78,7 @@ module.exports = {Node: Node, kthToLastNode: kthToLastNode};
 //   return curr.value
 // }
 
-// // Traverse once and store values in array
+// Traverse once and store values in array
 // function kthToLastNode(k, head){
 //   let listLength = 0;
 //   const valuesArr = [];

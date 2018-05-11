@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
   // figure out what the mean is
     // number of items in the array
@@ -63,7 +62,7 @@ module.exports = modemean;
 
 // PETE SOLUTION 
 
-// // helper functions - hold mode with array
+// helper functions - hold mode with array
 // function modemean(array) {
 //   return mean(array) === mode(array);
 // }
