@@ -14,7 +14,11 @@
  */
 
 function reverseInPlace(array) {
-
+  return array.reduceRight((acc, curr) => {
+    return acc.concat(curr);
+  }, []);
 }
 
+
+console.log(reverseInPlace(['a', 'b', 'c', 'd']));
 module.exports = reverseInPlace;
