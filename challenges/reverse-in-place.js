@@ -13,15 +13,23 @@
  */
 const arr = [1, 2, 3, 4, 5];
 
+// function reverseInPlace(array) {
+//   let i = 0;
+//   let j = array.length - 1;
+//   while (j > i) {
+//     const temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+//     i++;
+//     j--;
+//   }
+//   return array;
+// }
+
 function reverseInPlace(array) {
   let i = 0;
-  let j = array.length - 1;
-  while (j > i) {
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-    i++;
-    j--;
+  while (i < array.length - 1) {
+    array.splice(i++, 0, array.pop());
   }
   return array;
 }
