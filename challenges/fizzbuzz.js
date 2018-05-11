@@ -17,7 +17,28 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  const outputArr = [];
+  for (let i = 1; i <= num; i++) {
+    if (i%3 === 0 && i%5 !==0) outputArr.push('fizz');
+    else if (i%5 === 0 && i%5 !==3) outputArr.push('buzz');
+    else if (i%5 === 0 && i%3 === 0) outputArr.push('fizzbuzz');
+    else outputArr.push(i);
+  }
+  return outputArr;
 }
 
-module.exports = fizzbuzz;
+//more optimized version
+function fizzbuzz2(num) {
+  const outputArr = [];
+  for (let i = 1; i <= num; i++) {
+    if (i%3 === 0) {
+      if (i%5 === 0) outputArr.push('fizzbuzz');
+      else outputArr.push('fizz');
+    }
+    else {
+      if (i%5 === 0) outputArr.push('buzz');
+      else outputArr.push(i);
+    }
+  }
+  return outputArr;
+}

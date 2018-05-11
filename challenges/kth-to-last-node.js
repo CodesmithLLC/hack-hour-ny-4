@@ -19,10 +19,62 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  //this.previous = null;
 }
 
 function kthToLastNode(k, head) {
+  let listLen = 0;
+  if (!head) return undefined;
+  
+  else {
+    const headVal = head.value;
+    let values = [];
+    values.push(headVal);
+    let current = head.next;
+    
+    while (current) {
+      value.push(current.value)
+      current = current.next;
+    }
+    
+    return value[listLen -k];
+  }
 
+  function kthToLastNode2(k, head)
+    let listLength = 0;
+   // const values = [];
+    let curr = head;
+    while (curr) {
+      listLength++;
+      curr = curr.next;
+    }
+    let i = listLength - k;
+    curr = head;
+    if (i < 0) {
+      return undefined;
+    }
+    while (i) {
+      i = i - 1;
+      curr = curr.next;
+    }
+    return curr.value;
+
+  /*
+   let endPos = 0;
+  let targetNode;
+  if (head.next === null) return undefined;
+  else {
+  //keep tranversing through my linked list until this.next = null;
+  // when end is found, go back k times and return the value on that note
+    while (this.next !== null) {
+      endPos++;
+    }
+    targetNode = (endPos - k) + 1;
+    
+
+  }
+  return output; 
+  */
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
