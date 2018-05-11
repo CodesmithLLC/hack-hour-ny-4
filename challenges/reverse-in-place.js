@@ -13,8 +13,32 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+
 function reverseInPlace(array) {
 
+    var curr;
+    var prev;
+    var start = 0;
+    var n = array.length -1;
+
+    for (let i = array.length - 1; i >= 0; i--){
+       
+       while (n > start ){
+         curr = array[n];
+         prev = array[n - 1];
+         array[n] = prev;
+         array[n -1] = curr
+         n--;
+        }
+        start++;
+
+        var n = array.length -1;
+ 
+        }
+ 
+console.log(array);
 }
+
+//reverseInPlace(['a','b','c','d'])
 
 module.exports = reverseInPlace;
