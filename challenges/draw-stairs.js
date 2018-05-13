@@ -13,9 +13,16 @@
 
 */
 
-function drawStairs(n) {
-
+function drawStairs(n, stars = '') {
+  let space = ' ';
+  if (n === 0){
+    console.log(stars);
+  } else {
+    console.log(space.repeat(n) + stars);
+    drawStairs(n - 1, stars + '*' )
+  }
 }
 
-
 module.exports = drawStairs;
+
+console.log(drawStairs(3))
