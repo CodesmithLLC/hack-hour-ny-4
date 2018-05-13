@@ -37,12 +37,11 @@ function drawStairs(n) {
         console.log(stars);
       } else {
         stars += '*';
-        console.log(' '.repeat(n) + stars);  
+        console.log(' '.repeat(n-1) + stars);  
         counter--;
         drawClosure(n - 1);
       }
     }
- 
   }
   drawClosure(n);
 }
