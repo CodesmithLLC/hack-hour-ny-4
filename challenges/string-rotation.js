@@ -15,27 +15,34 @@ function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
-function stringRotation(s1, s2) {
-  let arr = [];
-  arr = s2.split('');
-  for(let i = 0; i < arr.length; i++){
-    if(s1 === arr.join('')){
-      return true;
-    } else {
-      rotate(arr);
-    }
-  }
-  return false;
+// function stringRotation(s1, s2) {
+//   let arr = [];
+//   arr = s2.split('');
+//   for(let i = 0; i < arr.length; i++){
+//     if(s1 === arr.join('')){
+//       return true;
+//     } else {
+//       rotate(arr);
+//     }
+//   }
+//   return false;
+// }
+
+// function rotate(array){
+//   var temp = array.shift();
+//   array.push(temp);
+// }
+
+function stringRotation(s1, s2){
+  if(s1.length !== s2.length) return false;
+  let newString = s1 + s1;
+  return isSubstring(newString, s2);
 }
 
-function rotate(array){
-  var temp = array.shift();
-  array.push(temp)
-}
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
 
-console.log(stringRotation("hello", "hello"));
-console.log(stringRotation("hello", "llohe"));
-console.log(stringRotation("hello", "ollhe"));
-console.log(stringRotation("hello", "he"));
+// console.log(stringRotation("hello", "hello"));
+// console.log(stringRotation("hello", "llohe"));
+// console.log(stringRotation("hello", "ollhe"));
+// console.log(stringRotation("hello", "he"));
