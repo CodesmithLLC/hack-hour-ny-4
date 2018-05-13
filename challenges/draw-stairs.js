@@ -13,18 +13,39 @@
 
 */
 
-function drawStairs(n, stars = '') {
-  let space = ' ';
-  if (n === 0){
-    console.log(stars);
-  } else {
-    if(stars !== ''){
-      console.log(space.repeat(n) + stars);  
-    }
-    return drawStairs(n - 1, stars + '*' );
-  }
-}
 
+// function drawStairs(n, stars = '') {
+
+//   let space = ' ';
+//   if (n === 0){
+//     console.log(stars);
+//   } else {
+//     if(stars !== ''){
+//       console.log(space.repeat(n) + stars);  
+//     }
+//     drawStairs(n - 1, stars + '*' );
+//   }
+// }
+
+
+function drawStairs(n) {
+  let stars = '';
+  let counter = n;
+  function drawClosure(n){
+    while (counter > 0){
+      if (n === 0){
+        console.log(stars);
+      } else {
+        stars += '*';
+        console.log(' '.repeat(n) + stars);  
+        counter--;
+        drawClosure(n - 1);
+      }
+    }
+ 
+  }
+  drawClosure(n);
+}
 module.exports = drawStairs;
 
-console.log(drawStairs(6))
+console.log(drawStairs(8))
