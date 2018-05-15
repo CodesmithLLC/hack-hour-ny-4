@@ -24,8 +24,21 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  const output = [];
+  const inputArr = input.split("");
+  console.log(inputArr);
+  const validChars = ["{", "}", "[", "]", "(", ")"];
+  inputArr.filter(char => {
+    if (validChars.includes(char)) output.push(char);
+    return output;
+  });
+  const finalChars = ["(", ")"];
+  for (let i = 0; i < output.length; i++) {
+    if (output.indexOf(finalChars)) return true;
+  }
+  return false;
 }
 
+// console.log(balancedParens(" var hubble = function() { telescopes.awesome();"));
 module.exports = balancedParens;
