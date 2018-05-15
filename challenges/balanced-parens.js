@@ -8,7 +8,6 @@ function balancedParens(input){
   
   for (let key in parens) {
     if (parens[key] % 2 !== 0) {
-      console.log('inside if', parens[key])
       return false;
     }
   }
