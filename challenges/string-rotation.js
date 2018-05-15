@@ -16,7 +16,25 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  let i = s1.length;
+  const s1Arr = s1.split("");
+  while (i > 0) {
+    if (isSubstring(s1Arr.join(""), s2) && s1.length === s2.length) {
+      return true;
+    }
+    s1Arr.unshift(s1Arr.pop());
+    i--;
+  }
+  return false;
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+// console.log(stringRotation("hello", "hello"));
+// -> true
+// console.log(stringRotation("hello", "llohe"));
+// -> true
+// console.log(stringRotation("hello", "he"));
+// -> false
+// console.log(stringRotation("hello", "ollhe"));
+// -> false (not a rotation, just an anagram)
+
+module.exports = { isSubstring, stringRotation };
