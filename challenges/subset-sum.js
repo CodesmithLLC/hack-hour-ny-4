@@ -8,8 +8,16 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
+function subsetSum(array, target, passedIn = []) {
+    if (array.length === 0) {
+      for (value of passedIn) {
+        if (value === target) return true;
+      }
+      return false;
+    } 
+    let newCombos = passedIn.map(value => value + array[0]);
+    passedIn = passedIn.concat(newCombos).concat(array[0]);
+    return subsetSum(array.slice(1), target, passedIn)
+  }
 
-}
-
-module.exports = subsetSum;
+  module.exports = subsetSum;
