@@ -9,7 +9,25 @@
  */
 
 function subsetSum(array, target) {
-
+  let countSub = recursion(array, target, array.length - 1);
+	if(countSub > 0) {
+    return true;
+  } 
+	return false;
+}
+function recursion(array, total, idx) {
+	console.log('total: ',total,', array[',idx,']: ',array[idx]);;
+  if(total === 0) {
+		return 1;
+	} else if(total < 0) {
+		return 0;
+	} else if( idx < 0) {
+		return 0;
+	} else if(total < array[idx]) {
+		return recursion(array, total, idx-1);
+	} else {
+		return recursion(array, total - array[idx], idx-1) + recursion(array, total, idx-1);
+	}
 }
 
 module.exports = subsetSum;
