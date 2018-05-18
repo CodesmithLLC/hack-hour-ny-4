@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* You are given an array of integers and a target number. Write a function that returns true if
  * there is a subset of the array that sums up to the target and returns false otherwise. A subset
  * can be any size and the elements do not have to appear consecutively in the array.
@@ -10,6 +11,18 @@
 
 function subsetSum(array, target) {
 
+	if (array.length === 1) return array[0] === target ? true : false;
+
+	if (array.reduce((acc, elem) => acc + elem) === target) return true;
+  
+	for (let i = 0; i < array.length; i += 1) {
+    let newArr = array.slice(0);
+    newArr.splice(i,1);
+		if (subsetSum(newArr, target)) return true;
+	}
+
+	return false;
 }
+
 
 module.exports = subsetSum;
