@@ -14,7 +14,15 @@
  */
 
 function binToDec(binary) {
-
+  let len = binary.length - 1;
+  let exponent = 0;
+  let sum = 0;
+  
+  for (let i = len; i >= 0; i--) {
+    sum += (parseInt(binary[i]) * Math.pow(2, exponent));
+    exponent++;
+  }
+  return sum;
 }
 
 module.exports = binToDec;
