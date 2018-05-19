@@ -14,7 +14,20 @@
  */
 
 function binToDec(binary) {
-
+  let counter = 1;
+  let sum = 0;
+  binary = binary.split('');
+  for(let i = binary.length -1; i >= 0; i--){
+    if(binary[i] === '1'){
+      sum += counter;
+    }
+    counter = counter * 2;  
+  }
+  return sum;
 }
 
 module.exports = binToDec;
+
+// console.log(binToDec('101')); // 5
+// console.log(binToDec('0')); // 0
+// console.log(binToDec('01010101')); // 85
