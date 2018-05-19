@@ -21,7 +21,7 @@ function binToDec(binary) {
       dec += Math.pow(2, power);
     }
   }
-  return dec;
+  return dec.toString();
 }
 
 function decToBin(decimal) {
