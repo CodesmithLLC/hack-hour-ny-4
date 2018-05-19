@@ -14,7 +14,37 @@
  */
 
 function binToDec(binary) {
+  let dec = 0;
+  for(let i = 0; i < binary.length; i++) {
+    let power = binary.length - 1 - i;
+    if(binary[i] === 1) {
+      dec += Math.pow(2, power);
+    }
+  }
+  return dec;
+}
 
+function decToBin(decimal) {
+  let result = '';
+  return rec(decimal, result);
+}
+
+function rec(decimal, result) {
+  if(decimal === '0') {
+    return result+'0';
+  }
+  else if(decimal === '1') {
+    return result+'10';
+  }
+  else {
+    let temp = 1, i = 1;
+    while(temp < decimal) {
+      temp = Math.pow(2, ++i);
+    }
+    result += '1';
+    let rest = Number(decimal) - Math.pow(2, i-1);
+    rec(rest.toString(), result);
+  }
 }
 
 module.exports = binToDec;
