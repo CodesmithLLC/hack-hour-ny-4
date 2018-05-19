@@ -9,7 +9,28 @@
  */
 
 function subsetSum(array, target) {
+  //this only works if adding only two numbers
+  for(let i = 0; i < array.length; i += 1 ){
+    for(let j = 0; j < array.length; j += 1 ){
+      if((array[i] + array[j]) < target)
+      sum = array[i] + array[j];
+      if(sum === target){
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
+
+function subsetSum(array, target) {
+  let arrayTotal = array.reduce((x, i) => x + i);
+  console.log(arrayTotal);
+  console.log(array.slice(1, 1 + 3));
+  arrayTotal -= array[1]
+  console.log(arrayTotal);
 }
 
 module.exports = subsetSum;
+
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32));
