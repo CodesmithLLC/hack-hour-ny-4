@@ -21,7 +21,6 @@ function highestProduct(array) {
     return product2;
   }
 }
-console.log(highestProduct([1,3]));
 module.exports = highestProduct;
 
 
