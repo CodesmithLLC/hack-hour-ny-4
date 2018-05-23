@@ -11,7 +11,20 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  let strArr = str.replace(/[&\/\\#,\-_+()$~%@.'":*?!<>\[\]{}]/g,' ').split(' ').filter((elem)=> {
+    return elem !== '';
+  });;
+  let stack = [].push(strArr[0]);
+  for(let i = 1; i < strArr.length; i++) {
+    if(stack[stack.length]) {
+      if(stack[stack.length - 1].toLowerCase() === strArr[i].split('').reverse().join('').toLowerCase() ) {
+        stack.pop();
+      } else {
+        stack.push(strArr[i]);
+      }
+    }
+  }
+  return !stack.length;
 }
 
 module.exports = matchWord;
