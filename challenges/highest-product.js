@@ -3,6 +3,10 @@
  */
 
 function highestProduct(array) {
+    if (!Array.isArray(array)) return 0
+    else if (array.length < 3) return 0
+    else {
+
     // console.log(array);
     let negArr = [];
     array = array.sort();
@@ -29,7 +33,7 @@ function highestProduct(array) {
     // console.log(array);
 
     return product1 * product2;
-
+    }
 }
 
 // console.log(highestProduct([-4, -3, -2]));
