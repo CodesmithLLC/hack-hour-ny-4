@@ -16,8 +16,8 @@ function highestProduct(array) {
     negArr = negArr.map((num) => {
         return Math.abs(num);
     }).sort();
-    console.log(array);
-    console.log(negArr);
+    // console.log(array);
+    // console.log(negArr);
 
     if (negArr.length >=2) {
         product1 = negArr.pop();
@@ -32,8 +32,8 @@ function highestProduct(array) {
 
 }
 
-console.log(highestProduct([-4, -3, -2]));
-console.log(highestProduct([2, -6, 1]));
+// console.log(highestProduct([-4, -3, -2]));
+// console.log(highestProduct([2, -6, 1]));
 // console.log(highestProduct([2, 5, -3]));
 // console.log(highestProduct([0, -1, 3]));
 
