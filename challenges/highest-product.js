@@ -5,6 +5,7 @@
 function highestProduct(array) {
 
   if (!Array.isArray(array) || array.length < 3) return 0;
+
   let max = 0;
   for (let i = 0; i < array.length; i++) {
     if (array[i] > max) {
@@ -30,4 +31,4 @@ function highestProduct(array) {
 
 module.exports = highestProduct;
 
-console.log(highestProduct([3, 4, 5, 6, 7, 8]));
+
