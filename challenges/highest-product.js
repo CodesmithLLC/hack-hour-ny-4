@@ -26,13 +26,14 @@ function highestProduct(array) {
     if (negArr.length >=2) {
         product1 = negArr.pop();
         product2 = negArr.pop();
+        return product1 * product2;
     } else {
         product1 = array.pop();
         product2 = array.pop();
+        return product1 * product2;
     }
     // console.log(array);
 
-    return product1 * product2;
     }
 }
 
