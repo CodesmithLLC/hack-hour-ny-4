@@ -35,7 +35,7 @@ function highestProduct(array) {
 	let negArr = array.filter((elem)=>{return elem < 0});
 	let posArr = array.filter((elem)=>{return elem > 0});
 	if(negArr.length >= 2 && posArr.length >= 2) {
-		if(negArr[0]*negArr[1] > posArr[posArr.length-1]*posArr[posArr.length-2]) {
+		if(negArr[0]*negArr[1]*posArr[posArr.length-1] > posArr[posArr.length-1]*posArr[posArr.length-2]*posArr[posArr.length-3]) {
 			return negArr[0]*negArr[1]*posArr[posArr.length-1];
 		} else {
 			return array.reduce((acc, curr, idx)=> {
