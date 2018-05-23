@@ -12,4 +12,8 @@ function subsetSum(array, target) {
 
 }
 
+<<<<<<< HEAD
 module.exports = subsetSum;
+=======
+module.exports = subsetSum;
+>>>>>>> 7e5bdbbc72c9b401e8132b6983c9ab922a22b470
