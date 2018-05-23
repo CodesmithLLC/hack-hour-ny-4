@@ -2,26 +2,25 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 function highestProduct(array) {
-  if (array.length === 0) {
+  if (!Array.isArray(array) || array.length < 3) {
     return 0;
-  } else if (!(Array.isArray(array))){
-    return 0;
-  } else if (array.length <=3) {
-    let product1 = 1;
-    array.forEach( (num) => {
-      product1 = product1 * num;
-    })
-    return product1;
   
   } else {
-    let positiveArr = array.map((num) => Math.abs(num));
-    let sortedArr = positiveArr.sort((a,b) => a - b);
+    let sortedArr = array.sort((a,b) => a - b);
+    
     let product2 = 1;
-    for (let i = sortedArr.length-1; i >= sortedArr.length - 3; i--) {
-      product2 *= sortedArr[i];
+    let len = sortedArr.length;
+    let first2 = sortedArr[0] * sortedArr[1];
+    let last2 = sortedArr[len - 2] * sortedArr[len - 1];
+   
+    if ( first2 > last2) {
+      product2 = first2 * sortedArr[len - 1];
+    } else {
+      product2 = last2 * sortedArr[len - 3];
     }
     return product2;
   }
 }
-
 module.exports = highestProduct;
+
+
