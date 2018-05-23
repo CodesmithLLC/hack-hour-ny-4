@@ -6,29 +6,28 @@ function highestProduct(array) {
 
   if (!Array.isArray(array) || array.length < 3) return 0;
 
-  let max = 0;
+  let max = -10000;
   for (let i = 0; i < array.length; i++) {
     if (array[i] > max) {
       max = array[i];
     }
   }
-  let secondMax = 0;
+  let secondMax = -10000;
   for (let j = 0; j < array.length; j++) {
     if (array[j] > secondMax && array[j] < max) {
       secondMax = array[j];
     }
   }
-  let thirdMax = 0;
+  let thirdMax = -10000;
   for (let k = 0; k < array.length; k++) {
     if (array[k] > thirdMax && array[k] < secondMax) {
       thirdMax = array[k];
     }
   }
-
   return max * secondMax * thirdMax;
 }
 
 
 module.exports = highestProduct;
 
-
+console.log(highestProduct([-2, -7, 5, 10]));
