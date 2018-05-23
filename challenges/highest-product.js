@@ -4,15 +4,28 @@
 
 function highestProduct(array) {
     // console.log(array);
-    array = array.map((num) => {
+    let negArr = [];
+    array = array.sort();
+    let product1;
+    let product2;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0) negArr.push(array[i]);
+    }
+
+    negArr = negArr.map((num) => {
         return Math.abs(num);
     }).sort();
-
     // console.log(array);
-    let product1 = array.pop();
-    // console.log(product1);
-    let product2 = array.pop();
-    // console.log(product2);
+    // console.log(negArr);
+
+    if (negArr.length >=2) {
+        product1 = negArr.pop();
+        product2 = negArr.pop();
+    } else {
+        product1 = array.pop();
+        product2 = array.pop();
+    }
     // console.log(array);
 
     return product1 * product2;
@@ -20,7 +33,7 @@ function highestProduct(array) {
 }
 
 // console.log(highestProduct([-4, -3, -2]));
-// console.log(highestProduct([-6, 2, 1]));
+// console.log(highestProduct([2, -6, 1]));
 // console.log(highestProduct([2, 5, -3]));
 // console.log(highestProduct([0, -1, 3]));
 
