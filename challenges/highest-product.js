@@ -4,7 +4,21 @@
 
 function highestProduct(array) {
 
+    array.sort((a,b) => a - b );
+
+    //console.log(array);
+
+    let len = array.length;
+
+    product = Math.max(
+        array[0] * array[1] * array[len -1],
+        array[len-1] * array[len-2] * array[len-3]
+    )
+    return product;
+
 }
+
+//console.log(highestProduct([-3,2,6,-4,1,5]))
 
 
 module.exports = highestProduct;
