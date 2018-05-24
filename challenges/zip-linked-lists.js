@@ -11,6 +11,23 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  let l1Next = l1.next;
+  let l2Next = l2.next;
+  while(l1.next && l2.next) {
+
+    l1.next = l2;
+    l2.next = l1Next;
+
+    l1 = l1Next;
+    l2 = l2Next;
+
+    l1Next = l1.next;
+    l2Next = l2.next;
+
+  }
+	// if(!l1.next && l2) {
+	// 	l1.next = l2;
+	// }
 };
 
 module.exports = {Node: Node, zip: zip};
