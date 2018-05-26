@@ -36,17 +36,17 @@ module.exports = Stack;
 
 let newStack = new Stack();
 
-newStack.push(5);
-newStack.push(13);
-newStack.push(3);
-newStack.push(56);
-newStack.push(20);
-newStack.push(3);
-newStack.push(4);
-console.log('before pop', newStack);
-newStack.pop()
-console.log('after pop', newStack);
+// newStack.push(5);
+// newStack.push(13);
+// newStack.push(3);
+// newStack.push(56);
+// newStack.push(20);
+// newStack.push(3);
+// newStack.push(4);
+// console.log('before pop', newStack);
+// newStack.pop()
+// console.log('after pop', newStack);
 
-console.log('getMax', newStack.getMax());
+// console.log('getMax', newStack.getMax());
 
-console.log('after getMax', newStack);
+// console.log('after getMax', newStack);
