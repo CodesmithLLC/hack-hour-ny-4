@@ -14,31 +14,15 @@
 */
 
 function drawStairs(n) {
-  var starArr = []; 
-  var spaceArr = []; 
+  var star = '*', stairs = [];
 
-  var combinedStr = '';  
-  var stars = ''; 
-  var spaces = '';
-
-  for (let j = 0; j < n-1; j++) { 
-    spaces += ' ';
-    spaceArr.push(spaces); 
-  }
-
-  for (let i = 0; i < n; i++) { 
-    stars += '*'; 
-    starArr.push(stars);  
+  for (let i = 1; i <= n; i++) {
+    stairs.push((' ').repeat(n-i));  
+    stairs.push(star.repeat(i)); 
+    if (i != n) stairs.push('\n'); 
   }//end for
 
-  var starsIndex = 0;
-  for (let i = spaceArr.length-1; i >= 0; i--) { 
-    combinedStr += spaceArr[i].concat(starArr[starsIndex]);
-    combinedStr += '\n';   
-    starsIndex+=1;
-  }//end for
-
-  combinedStr += stars; 
+  console.log(stairs.join('')); 
 }
 
 
