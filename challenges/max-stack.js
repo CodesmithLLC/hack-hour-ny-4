@@ -7,29 +7,55 @@
  */
 
 function Stack() {
-  this.storage = {};
-  this.index = 0;
+  this.length = 0
+  this.store = {}
+  this.max = {
+    idx: 0,
+    val: -Infinity
+  }
 }
-Stack.prototype.push = (value) => {
-  this.index++;
-  this.storage[this.index] = value;
-  return this.index;
-}
-Stack.prototype.pop = () => {
-  let removed = this.storage[this.index-1];
-  delete this.storage[this.index-1];
-  this.index--;
-  if(this.index < 0) this.index = 0;
-  return removed;
-}
-Stack.prototype.getMax = () => {
-  let maxValue = 0;;
-  for(let key in this.storage) {
-    if(this.storage[key] > maxValue) {
-      maxValue = this.storage[key];
+
+Stack.prototype.setNewMax = function () {
+  for (let i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i]
+      this.max.idx = i
     }
   }
-  return maxValue;
+}
+
+Stack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY
+  this.max.idx = -1
+  return
+}
+
+Stack.prototype.push = function (v) {
+  if (v > this.max.val) {
+    this.max.idx = this.length
+    this.max.val = v
+  }
+  this.store[this.length] = v
+  this.length++
+  return this.length
+}
+
+Stack.prototype.pop = function () {
+  if (this.length === 0) return undefined;
+  else {
+    var popped = this.store[this.length - 1]
+    if (popped === this.max.val) {
+      this.resetMax()
+    }
+    delete this.store[this.length - 1]
+    this.setNewMax()
+  }
+  this.length -= 1
+  return popped
+}
+
+Stack.prototype.getMax = function () {
+  return this.length === 0 ? undefined : this.max.val
 }
 
 module.exports = Stack;
