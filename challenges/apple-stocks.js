@@ -13,7 +13,11 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
+  const spy = stock_prices_yesterday.filter(e => e); 
+  spy.sort((a, b) => a - b); 
+  const profit = spy[spy.length-1] - spy[0];  
+  return profit; 
 }
 
 module.exports = bestProfit;
