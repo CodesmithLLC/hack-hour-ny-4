@@ -13,6 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if(!Array.isArray(stock_prices_yesterday)) return 0;
   let bestProfit = 0;
   for(let i = 0; i < stock_prices_yesterday.length - 1; i++) {
     for(let j = i + 1; j < stock_prices_yesterday.length; j++) {
