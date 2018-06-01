@@ -14,7 +14,10 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  if (!arr1 || !arr2) return undefined; 
+  const mergedArr = arr1.concat(arr2); 
+  mergedArr.sort((a, b) => a - b); 
+  return mergedArr; 
 }
 
 module.exports = mergeArrays;
