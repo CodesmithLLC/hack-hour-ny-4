@@ -25,20 +25,14 @@
  */
 
 function balancedParens(input) {
-  const output = [];
-  const inputArr = input.split("");
-  console.log(inputArr);
-  const validChars = ["{", "}", "[", "]", "(", ")"];
-  inputArr.filter(char => {
-    if (validChars.includes(char)) output.push(char);
-    return output;
-  });
-  const finalChars = ["(", ")"];
-  for (let i = 0; i < output.length; i++) {
-    if (output.indexOf(finalChars)) return true;
-  }
-  return false;
-}
+  let count = input.split('').reduce((counter, char) => {
+    if (counter < 0) return counter;
+    else if (char === ("{" || "[" || "(")) return counter += 1;
+    else if (char === ("}" || "]" || ")")) return counter -= 1;
+    else return counter;
+  }, 0);
+  return count === 0 ? true : false;
+};
 
-// console.log(balancedParens(" var hubble = function() { telescopes.awesome();"));
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
 module.exports = balancedParens;
