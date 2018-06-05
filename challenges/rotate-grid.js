@@ -17,7 +17,26 @@
  */
 
 function rotateGrid(grid, n) {
-
+  grid = grid.reverse();
+  // console.log('reversed grid', grid)
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < i; j += 1) {
+      // console.log('i',i,'j',j,'temp',grid[i][j],'rep',grid[j][i]);
+      let temp = grid[i][j];
+      grid[i][j] = grid[j][i];
+      grid[j][i] = temp;
+    }
+  }
+  return grid;
 }
 
+
 module.exports = rotateGrid;
+
+let grid = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+
+console.log(rotateGrid(grid, 3))
