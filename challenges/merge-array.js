@@ -13,8 +13,20 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
+// function mergeArrays(arr1, arr2) {
+//     let joined = arr1.concat(arr2);
+//     return joined.sort(((a,b) => (a-b)));
+// }
 
+function mergeArrays(arr1, arr2) {
+    const joined = arr1.concat(arr2);
+    const firstHalf = joined.slice(0, Math.floor(joined.length / 2));
+    mergeArrays(firstHalf);
+    const secondHalf = joined.slice(Math.floor(joined.length / 2));
+    mergeArrays(secondHalf);
+    console.log('first half: ', firstHalf);
+    console.log('second half: ', secondHalf);
 }
 
+console.log(mergeArrays([3,4,6,10,11,15,21], [1,5,8,12,14,19]));
 module.exports = mergeArrays;
