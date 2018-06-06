@@ -29,7 +29,7 @@ Queue.prototype.enqueue = function(val){
 }
 
 Queue.prototype.dequeue = function(){
-  let result = null;
+  let result;
   if(!this.dequeueBox.storage.length) {
     while(this.enqueueBox.storage.length) {
       this.dequeueBox.push(this.enqueueBox.pop());
