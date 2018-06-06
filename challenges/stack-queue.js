@@ -16,7 +16,8 @@ function Stack() {
 
 function Queue() {
   this.storage = {};
-  this.length = 0;
+  this.length1 = 0;
+  this.length2 = 0;
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
