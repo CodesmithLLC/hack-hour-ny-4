@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use strict';
 /**
  * Write a function to reverse an array in place
@@ -14,7 +16,10 @@
  */
 
 function reverseInPlace(array) {
-
+	for (let i = 0; i < Math.floor(array.length / 2); i += 1) {
+		[array[i], array[array.length - 1 - i]] = [array[array.length - 1 - i], array[i]];
+	}
+	return array;
 }
 
 module.exports = reverseInPlace;

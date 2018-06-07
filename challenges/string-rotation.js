@@ -10,13 +10,26 @@
  *              stringRotation("hello", "he") -> false
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
+/* eslint-disable */
 
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
+	if (s1.length !== s2.length) return false;
 
+	function rotateString(str) {
+		let strArr = str.split('');
+		strArr.unshift(strArr.pop());
+		return strArr.join('');
+	}
+
+	for (let i = 0; i < s1.length; i+= 1) {
+		if (isSubstring(s1, s2)) return true;
+		s2 = rotateString(s2);
+	}
+	return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

@@ -13,7 +13,33 @@
  */
 
 function numToWords(num) {
+  const wordDict = {0: 'Zero', 1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five',
+              		6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven',
+		            12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen', 16: 'Sixteen',
+		            17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen', 20: 'Twenty', 30: 'Thirty',
+		            40: 'Forty', 50: 'Fifty', 60: 'Sixty', 70: 'Seventy', 80: 'Eighty', 90: 'Ninty',
+		            100: 'Hundred', 1000: 'Thousand', 1000000: 'Million', 1000000000: 'Billion',
+		            1000000000000: 'Trillion', 1000000000000000: 'Quadrillion'};
+  const bases = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000, 100, 10, 0];
+  let curBase;
+  let numWord = '';
 
+  if (num === 0 ) return wordDict[num];
+  while (num > 0) {
+    curBase = bases.find((elem) => elem < num);
+    if (curBase < 100 && num <= 20) {
+      numWord += wordDict[num]
+      num -= num;
+    } else if (curBase < 100){
+      numWord += wordDict[Math.floor(num/10) * 10];
+      num -= Math.floor(num/10) * 10;
+    } else {
+      numWord += numToWords(Math.floor(num / curBase)) + wordDict[curBase];
+      num -= Math.floor(num / curBase) * curBase;
+    }
+  }
+
+  return numWord;
 }
 
 module.exports = numToWords;

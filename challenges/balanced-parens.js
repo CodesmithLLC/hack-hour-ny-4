@@ -13,7 +13,7 @@
  *
  * Example:
  *  balancedParens('[](){}'); // true
- *  balancedParens('[({})]');   // true
+ *  balancedParens('{[({})]}');   // true
  *  balancedParens('[(]{)}'); // false
  *
  * Step 3:
@@ -24,8 +24,27 @@
  *
  */
 
-function balancedParens(input){
+/* eslint-disable */
 
+function balancedParens(input){
+	let unmatched = [];
+	let openChar = /[\[\{\(]/;
+	let closeChar = /[\]\}\)]/;
+
+	for (let i = 0; i < input.length; i += 1) {
+
+		if (openChar.test(input[i])) unmatched.push(input[i]);
+
+		else if (closeChar.test(input[i])) {
+			if (input[i] === ')' && unmatched[unmatched.length - 1] === '(') unmatched.pop()
+			else if (input[i] === ']' && unmatched[unmatched.length - 1] === '[') unmatched.pop()
+			else if (input[i] === '}' && unmatched[unmatched.length - 1] === '{') unmatched.pop()
+			else return false;
+		}
+	}
+  
+  if (unmatched.length > 0) return false;
+	return true;
 }
 
 module.exports = balancedParens;
