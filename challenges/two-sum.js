@@ -3,7 +3,12 @@
  */
 
 function twoSum(arr, n) {
-
+  if (!arr) return undefined; 
+  for (let i = 0; i < arr.length; i++) { 
+  let difference = n - arr[i]; 
+    if (arr.includes(difference) && difference !== arr[i]) return true; 
+  }//end for
+  return false; 
 }
 
 module.exports = twoSum;
