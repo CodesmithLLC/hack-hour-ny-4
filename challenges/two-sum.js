@@ -3,10 +3,10 @@
  */
 
 function twoSum(arr, n) {
-  let filteredArr = arr.filter(num => num <= n);
+  //let filteredArr = arr.filter(num => num <= n);
   let noMatches = false;
-  for (let i = 0; i < filteredArr.length - 1; i++) {
-    for (let j = i+1; j < filteredArr.length; j++) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i+1; j < arr.length; j++) {
       if (filteredArr[i] + filteredArr[j] === n ) return true;
     }
   }
