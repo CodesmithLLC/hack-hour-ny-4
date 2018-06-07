@@ -3,12 +3,18 @@
  */
 
 function twoSum(arr, n) {
-  let missing = arr.reduce((acc, element) => {
-    return n - element;
-  }, 0);
-  return arr.includes(missing);
+  let difference = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (difference[n - arr[i]]) return true;
+    difference[arr[i]] = n - arr[i]
+  }
+  return false;
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   return arr.includes(n - arr[i]);
+  // }
 }
 
-// console.log(twoSum([1, 2, 10, 4, 5], 15));
+console.log(twoSum([5, 2, 3, 10, 1], 15));
 
 module.exports = twoSum;
