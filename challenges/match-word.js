@@ -10,8 +10,48 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
+function matchWord(str) {
+  const delBank = {
+    '_': '_',
+    '-': '-'
+  };
+  let array = str.split('');
+  for(let i = 0; i < array.length; i += 1){
+    if (array[i] in delBank){
+      array[i] = ' ';
+    }
+  }
+  array = array.join('').trim().split(' ');
+  console.log(array);
+  
+  
+}
+
+
+function balanced(array) {
+  let bracketBank = {
+    '(': ')',
+    '[': ']',
+    '{': '}'
+  }
+  let stack = array;
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] === ')' || array[i] === ']' || array[i] === '}') {
+      if (stack.pop() != array[i]) {
+        return false;
+      }
+    }
+    if (array[i].split('').reverse().join() in stack){
+      if (stack.pop() != array[i]) {
+        return false;
+      }
+    }
+  }
+  return !stack.length;
 }
 
 module.exports = matchWord;
+
+console.log(matchWord('__ENDDNE__'));
+// console.log(matchWord('__END_DNE-----'));

@@ -12,8 +12,32 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
+const single = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+const tens = ['Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninty'];
+const larger = ['Hundred', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+
+
 function numToWords(num) {
+  let string = num.toString();
+  let length = string.length;
+  if(length === 1){
+    return single[num];
+  }
+  if(length === 2){
+    if(string[0] === '1'){
+      let i = string[1];
+      return teens[i];
+    }
+    if(string[0] === '2'){
+      
+    }
+  }
+  
 
 }
 
 module.exports = numToWords;
+
+
+console.log(numToWords(112));
