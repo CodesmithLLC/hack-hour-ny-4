@@ -24,8 +24,15 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+  let count = input.split('').reduce((counter, char) => {
+    if (counter < 0) return counter;
+    else if (char === ("{" || "[" || "(")) return counter += 1;
+    else if (char === ("}" || "]" || ")")) return counter -= 1;
+    else return counter;
+  }, 0);
+  return count === 0 ? true : false;
+};
 
-}
-
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
 module.exports = balancedParens;

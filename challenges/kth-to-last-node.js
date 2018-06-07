@@ -20,9 +20,20 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+// function SinglyLinkedList(arr = []) {
+//   this.head = null;
+//   this.tail = null;
+//   this.length = 0;
+// }
 
 function kthToLastNode(k, head) {
-
+  let index = 0;
+  if (index >= this.head) return null;
+  while (this.head.next) {
+    this.head = this.head.next;
+    index++;
+  }
+  if (index === this.head - 1 - k) return this.value;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node, kthToLastNode };
