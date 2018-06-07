@@ -13,7 +13,7 @@
 
 function twoSum(arr, n) {
   let storage = {};
-  for(let i = 0; i , arr.length; i++) {
+  for(let i = 0; i < arr.length; i++) {
     if( storage[ n - arr[i] ] ) return true;
     storage[arr[i]] = true;
   }
