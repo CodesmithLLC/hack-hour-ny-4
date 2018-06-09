@@ -14,7 +14,29 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  const getLeafDepth = (topNode) => {
+    const leafDepth = [];
 
+    const recurHelp = (node, depth) => {
+      depth += 1;
+      if (node.left === null && node.right === null) leafDepth.push(depth);
+      else {
+        if (node.left !== null) recurHelp(node.left, depth);
+        if (node.right !== null) recurHelp(node.right, depth);
+      }
+    };
+
+    recurHelp(topNode, 0);
+    return leafDepth;
+  };
+
+  const leftLeafDepth = tree.left === null ? [0] : getLeafDepth(tree.left);
+  const rightLeafDepth = tree.right === null ? [0] : getLeafDepth(tree.right);
+
+  if (Math.max(...leftLeafDepth) - Math.min(...leftLeafDepth) > 1) return false;
+  if (Math.max(...rightLeafDepth) - Math.min(...rightLeafDepth) > 1) return false;
+  if (Math.abs(Math.max(...leftLeafDepth) - Math.max(...rightLeafDepth)) > 1) return false;
+  return true;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
