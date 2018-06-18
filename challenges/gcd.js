@@ -8,7 +8,14 @@
  */
 
 function gcd(a, b) {
-
+  let divisors; 
+  if (a > b) divisors = a; 
+  else divisors = b; 
+  
+  while (divisors > 0) {  
+    if (a % divisors === 0 && b % divisors === 0) return divisors; 
+    divisors--; 
+  }//end while 
 }
 
 module.exports = gcd;

@@ -16,36 +16,9 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  let s2Arr = s2.split('');
-
-  let index = 0; 
-  let compString = s2Arr[index];
-  let subStringArr = []; 
- 
-  while (isSubstring(s1, compString)) { 
-    if (compString === s1) {return true;}
-    index+=1;
-    compString += s2Arr[index];
-    console.log(compString);
-  }//end while*/
- 
-  if(s1.length === compString.length) { 
-    return true; 
-  }
-
-  //console.log(compString.slice(0, -1)); 
-  
-  let sub = s2.split(compString.slice(0, -1));
-  console.log(sub); 
-
-  sub[0] = compString.slice(0, -1); 
-  console.log(sub); 
-
-  if (s1.includes(sub[0]) && s1.includes(sub[1])) {
-    return true; 
-  } else { 
-    return false; 
-  } //end false
+  if (s1.length !== s2.length) return false; 
+  const stringToCheck = s1.concat(s1);
+  return isSubstring(stringToCheck, s2); 
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
