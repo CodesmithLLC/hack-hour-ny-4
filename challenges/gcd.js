@@ -8,7 +8,12 @@
  */
 
 function gcd(a, b) {
-
+  let maxPossibleMultiple = Math.floor(Math.min(a, b) / 2);
+  while (maxPossibleMultiple > 0) {
+    if ((a % maxPossibleMultiple) === 0 && (b % maxPossibleMultiple) === 0) return maxPossibleMultiple;
+    maxPossibleMultiple--;
+  };
 }
+console.log(gcd(10, 9));
 
 module.exports = gcd;
