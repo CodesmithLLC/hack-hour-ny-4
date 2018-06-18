@@ -11,7 +11,24 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  if (typeof str !== 'string') return undefined; 
+  if (str === '') return true; 
+  
+  const lowerCaseStr = str.toLowerCase(); 
+  const words = lowerCaseStr.match(/[a-z]+/g); 
+  
+  if (words.length % 2 === 1) return false;
+  
+  const wordStack = [];  
+  words.forEach((word) => { 
+    const reversedWord = word.split('').reverse().join(''); 
+    const topOfStack = wordStack[wordStack.length-1]; 
+  
+    if (reversedWord !== topOfStack) wordStack.push(word);
+    else wordStack.pop(); 
+  }); 
+  
+  return wordStack.length === 0; 
 }
 
 module.exports = matchWord;
