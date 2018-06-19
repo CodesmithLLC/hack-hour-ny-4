@@ -26,7 +26,9 @@
  */
 
 function applyIt(func, args) {
-
+  const argList = JSON.stringify(args).slice(1, -1);
+  const evalStatement = "(" + func + ")(" + argList + ")";
+  return () => eval(evalStatement);
 }
 
 module.exports = applyIt;
