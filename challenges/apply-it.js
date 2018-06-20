@@ -26,7 +26,8 @@
  */
 
 function applyIt(func, args) {
-
+    
+  return func();
 }
 
 module.exports = applyIt;
