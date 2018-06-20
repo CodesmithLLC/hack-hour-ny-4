@@ -10,7 +10,19 @@
 
 
 function countTwos(num) {
-
+    let numOfTwos = 0;
+let counter = 0;
+//let n = counter.toString();
+while (counter < num){
+    let n = counter.toString();
+    if (n.split('').includes('2')){
+        numOfTwos++;
+    }
+    counter++;
+}
+return numOfTwos
 }
 
 module.exports = countTwos;
+
+console.log(countTwos(100));
