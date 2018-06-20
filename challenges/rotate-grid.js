@@ -33,11 +33,13 @@ function rotateGrid(grid, n) {
     console.log('return Grid: ', returnGrid);
 
     grid.forEach((row) => {
-      for(let i = 0; i < returnGrid.length; i++) {
-          console.log('i: ', i);
-          returnGrid[i].push(1);
-      }
+      row.forEach((num) => {
+        console.log('row: ', row);
+        console.log('num: ', num);
+      });
     });
+
+    console.log(returnGrid[0]);
 
     return returnGrid;
 }
