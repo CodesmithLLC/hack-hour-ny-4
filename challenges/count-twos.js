@@ -11,13 +11,16 @@
 
 function countTwos(num) {
     let numOfTwos = 0;
-let counter = 0;
-//let n = counter.toString();
-while (counter < num){
-    let n = counter.toString();
-    if (n.split('').includes('2')){
-        numOfTwos++;
-    }
+    let counter = 0;
+
+    while (counter < num){
+    let n = counter.toString().split('');
+    n.forEach(function(element) {
+        if (element === '2'){
+            numOfTwos++;
+        }
+    });
+
     counter++;
 }
 return numOfTwos
@@ -25,4 +28,4 @@ return numOfTwos
 
 module.exports = countTwos;
 
-console.log(countTwos(100));
+//console.log(countTwos(11420));
