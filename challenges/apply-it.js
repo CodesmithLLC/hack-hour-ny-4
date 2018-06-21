@@ -26,8 +26,10 @@
  */
 
 function applyIt(func, args) {
-    
-  return func();
+  let functionCall = 'func' + '(';
+  for(let i = 0; i < args.length; i++) {
+    functionCall += "\'" + args[i] + "\'";
+  }
 }
 
 module.exports = applyIt;
