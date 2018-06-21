@@ -30,8 +30,9 @@ function applyIt(func, args) {
   const age = args[1];
   const location = args[args.length - 1];
   func = () => {
-    if (!args[0]) return `We don't know your ${name}!`;
-    else if (!args[1]) return `We don't know how old ${name} is!`;
+    if (!name) return `We don't know your ${name}!`;
+    else if (!age) return `We don't know how old ${name} is!`;
+    else if (!location) return `We don't know where ${name}, who is ${age}, lives!`;
     return `${name} is ${age} and he lives in ${location}`;
   };
   return func;
