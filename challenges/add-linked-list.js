@@ -18,7 +18,33 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let curL1Node = l1;
+  let curL2Node = l2;
+  let newList = null;
+  let carryVal = 0;
+  let sumVal;
+  let nodeVal;
+  let curNewListNode;
 
+  while (curL1Node !== null) {
+    sumVal = curL1Node.value + curL2Node.value;
+    nodeVal = (sumVal + carryVal > 9 ? sumVal - 10 : sumVal) + carryVal;
+    // Calculate new carry value
+    carryVal = sumVal + carryVal > 9 ? 1 : 0;
+
+    if (newList === null) {
+      newList = new Node(nodeVal);
+      curNewListNode = newList;
+    } else {
+      curNewListNode.next = new Node(nodeVal);
+      curNewListNode = curNewListNode.next;
+    }
+
+    curL1Node = curL1Node.next;
+    curL2Node = curL2Node.next;
+  }
+
+  return newList;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
