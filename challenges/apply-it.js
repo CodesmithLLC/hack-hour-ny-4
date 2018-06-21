@@ -26,7 +26,15 @@
  */
 
 function applyIt(func, args) {
-
+  const name = args[0];
+  const age = args[1];
+  const location = args[args.length - 1];
+  func = () => {
+    if (!args[0]) return `We don't know your ${name}!`;
+    else if (!args[1]) return `We don't know how old ${name} is!`;
+    return `${name} is ${age} and he lives in ${location}`;
+  };
+  return func;
 }
 
 module.exports = applyIt;
