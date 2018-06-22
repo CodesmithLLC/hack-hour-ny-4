@@ -11,7 +11,16 @@
  */
 
 function repeatNumbers(array) {
+  const mem = {};
+  const arrLen = array.length;
+  let val;
 
+  for (let i = 0; i < arrLen; i += 1) {
+    val = array.pop();
+    if (mem[val] === undefined) mem[val] = true;
+    else return val;
+  }
+  return undefined;
 }
 
 module.exports = repeatNumbers;
