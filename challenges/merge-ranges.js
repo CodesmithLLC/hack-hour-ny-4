@@ -11,7 +11,31 @@
 
 
 function mergeRanges(array) {
+  const newRanges = [];
+  let placedFlag;
 
+  array.forEach((range) => {
+    for (let i = 0; i < newRanges.length; i += 1) {
+      placedFlag = false;
+      // Can merge if start or end time is between/equal to either time
+      if (range[0] >= newRanges[i][0] && range[0] <= newRanges[i][1]) {
+        placedFlag = true;
+        if (range[1] > newRanges[i][1]) newRanges[i][1] = range[1];
+      } else if (range[1] >= newRanges[i][0] && range[1] <= newRanges[i][1]) {
+        placedFlag = true;
+        if (range[0] < newRanges[i][0]) newRanges[i][0] = range[0];
+      } else if (range[0] <= newRanges[i][0] && range[1] >= newRanges[i][1]) {
+        placedFlag = true;
+        newRanges[i][0] = range[0];
+        newRanges[i][1] = range[1];
+      }
+    }
+    if (!placedFlag) {
+      newRanges.push(range);
+    }
+  });
+
+  return newRanges;
 }
 
 module.exports = mergeRanges;
