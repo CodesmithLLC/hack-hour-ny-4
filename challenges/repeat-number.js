@@ -19,6 +19,6 @@ function repeatNumbers(array) {
   }
   return -1;
 }
-console.log(repeatNumbers(arr));
+// console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
