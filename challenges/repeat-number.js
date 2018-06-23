@@ -10,13 +10,15 @@
  *
  */
 
-const arr = [1, 3, 5, 6, 7, 9, 9, 10, 11];
+const arr = [1, 5, 3, 7, 6, 9, 11, 12, 10, 9];
 function repeatNumbers(array) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === arr[i + 1]) return arr[i];
+  const sortedArr = arr.sort((a, b) => a - b);
+  for (let i = 0; i < sortedArr.length; i++) {
+    const diff = arr[i] - arr[i + 1];
+    if (diff === 0) return arr[i];
   }
   return -1;
 }
-// console.log(repeatNumbers(arr));
+console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
