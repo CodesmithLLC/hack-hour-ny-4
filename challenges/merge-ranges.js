@@ -21,7 +21,8 @@ function mergeRanges(array) {
 			newArr.push([array[i][0], array[i+1][1]]);
 			i++;
 		} else {
-			newArr.push(array[i]);
+			if(i === array.length - 2) newArr.push(array[i], array[i+1]);
+			else newArr.push(array[i]);
 		}
 	}
 	return newArr;

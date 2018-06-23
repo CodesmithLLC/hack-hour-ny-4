@@ -40,12 +40,14 @@ function addLinkedList(l1, l2) {
 			newNode = newNode.next;
 		}
   }
-  if(carry = 1) {
+  // if(carry = 1) {
     
-  } else {
-    if(currL1) newNode.next = currL1;
-    if(currL2) newNode.next = currL2;
-  }
+  // } else {
+  //   if(currL1) newNode.next = currL1;
+  //   if(currL2) newNode.next = currL2;
+  // }
+  if(currL1) newNode.next = currL1;
+  if(currL2) newNode.next = currL2;
   return result;
 }
 
