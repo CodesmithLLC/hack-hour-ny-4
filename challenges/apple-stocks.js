@@ -15,16 +15,14 @@
 
 function bestProfit(stock_prices_yesterday) {
   const minPrice = Math.min(...stock_prices_yesterday);
-  let maxPrice;
+  const maxPrice = Math.max(...stock_prices_yesterday);
+  let maxProfit = 0;
   for (const currentPrice of stock_prices_yesterday) {
-    maxPrice = currentPrice > Math.max(...stock_prices_yesterday) ?
-      currentPrice : Math.max(...stock_prices_yesterday);
+    const currentProfit = currentPrice - minPrice;
+    maxProfit = currentProfit > maxProfit ? currentProfit : maxProfit;
   }
-  const maxProfit = maxPrice - minPrice;
-  if (stock_prices_yesterday === null || maxProfit <= 0) return 0;
   return maxProfit;
 }
-// const stockPrices = [90, 100, 80, 300, 400, 500];
-// console.log(bestProfit(stockPrices));
-
+const stockPrices = [90, 100, 80, 300, 400, 500, 520, 376, 56, 23];
+console.log(bestProfit(stockPrices));
 module.exports = bestProfit;
