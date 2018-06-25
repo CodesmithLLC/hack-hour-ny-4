@@ -12,19 +12,19 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-const stockPrices = [90, 100, 80, 300, 400, 500];
 
-function bestProfit(stockPricesYesterday) {
-  const minPrice = Math.min(...stockPricesYesterday);
+function bestProfit(stock_prices_yesterday) {
+  const minPrice = Math.min(...stock_prices_yesterday);
   let maxPrice;
-  for (const currentPrice of stockPrices) {
-    maxPrice = currentPrice > Math.max(...stockPricesYesterday) ?
-      currentPrice : Math.max(...stockPricesYesterday);
+  for (const currentPrice of stock_prices_yesterday) {
+    maxPrice = currentPrice > Math.max(...stock_prices_yesterday) ?
+      currentPrice : Math.max(...stock_prices_yesterday);
   }
   const maxProfit = maxPrice - minPrice;
-  if (stockPricesYesterday === null || maxProfit <= 0) return 0;
+  if (stock_prices_yesterday === null || maxProfit <= 0) return 0;
   return maxProfit;
 }
+// const stockPrices = [90, 100, 80, 300, 400, 500];
 // console.log(bestProfit(stockPrices));
 
 module.exports = bestProfit;
