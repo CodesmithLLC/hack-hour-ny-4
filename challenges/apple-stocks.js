@@ -15,7 +15,6 @@
 
 function bestProfit(stock_prices_yesterday) {
   const minPrice = Math.min(...stock_prices_yesterday);
-  const maxPrice = Math.max(...stock_prices_yesterday);
   let maxProfit = 0;
   for (const currentPrice of stock_prices_yesterday) {
     const currentProfit = currentPrice - minPrice;
@@ -23,6 +22,6 @@ function bestProfit(stock_prices_yesterday) {
   }
   return maxProfit;
 }
-const stockPrices = [90, 100, 80, 300, 400, 500, 520, 376, 56, 23];
-console.log(bestProfit(stockPrices));
+// const stockPrices = [90, 100, 80, 300, 400, 500, 520, 376, 56, 23];
+// console.log(bestProfit(stockPrices));
 module.exports = bestProfit;
