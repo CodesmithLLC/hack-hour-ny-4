@@ -7,9 +7,20 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
-
+  for(let i = 0; i < 20; i++) {
+    // console.log('i: ', i);
+    if (i % 3 === 0) {
+      sum += i;
+      // console.log('should be adding multiples of 3: ', sum);
+    } else if (i % 5 === 0) {
+      sum += i;
+      // console.log('should be adding multiples of 5: ', sum);
+    }
+  }
   return sum;
 }
+
+console.log(sumMultiples3Or5Below1000());
 
 
 // extension make it dynamic function that takes input x,y,z
