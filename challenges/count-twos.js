@@ -12,30 +12,38 @@
 
 
 function countTwos(num) {
-    let numArr = String(Array.apply(null, {length: num}).map(Number.call, Number));
-    let number = 2222;
-    let counter = 0;
-    let match2 = /[2]/gi
-    //console.log(number.toString());
+    if (num === 1) return 0;
+    else if (num === 3) return 1;
+    else {
+        let numArr = String(Array.apply(null, {length: num}).map(Number.call, Number));
+        let number = 2222;
+        let counter = 0;
+        let match2 = /[2]/gi
+        console.log(number.toString());
 
-    let matchTest = (number.toString().match(match2));
+        let matchTest = (number.toString().match(match2));
 
-    // console.log(matchTest.length);
-    // console.log(matchTest);
-    // console.log(numArr);
-    // console.log(typeof numArr[0])
+        console.log(matchTest.length);
+        console.log(matchTest);
+        console.log(numArr);
+        console.log(typeof numArr[0])
 
-    let matchTest2 = numArr.match(match2);
-    // console.log(matchTest2);
-    // console.log(matchTest2.length);
+        let matchTest2 = numArr.match(match2);
+        console.log(matchTest2);
+        console.log(matchTest2.length);
 
-    return matchTest2.length;
+        return matchTest2.length;
+    }
 }
 
 // Number.prototype.string = (num) => {
 //     if (typeof num === Number) return num.toString();
 // }
 
-//console.log(countTwos(1000));
+//console.log(countTwos(1));
+//console.log(countTwos(3));
+//console.log(countTwos(13));
+// console.log(countTwos(1000));
+// console.log(countTwos(11420));
 
 module.exports = countTwos;

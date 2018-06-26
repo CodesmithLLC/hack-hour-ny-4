@@ -13,12 +13,38 @@
  */
 
 function Node(val) {
-  this.value = val;
+  this.head = val;
   this.next = null;
 }
 
 function addLinkedList(l1, l2) {
 
+
+
 }
 
+Node.prototype.push = (val) => {
+  const node = new Node(val);
+  if (!this.head) {
+    this.head = node;
+    
+  }
+}
+
+const l1Node = new Node();
+l1Node.push(2);
+l1Node.push(1);
+l1Node.push(5);
+
+const l2Node = new Node();
+l2Node.push(5);
+l2Node.push(9);
+l2Node.push(2);
+
+
+
+console.log(addLinkedList(l1Node, l2Node));
+
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+
+// 

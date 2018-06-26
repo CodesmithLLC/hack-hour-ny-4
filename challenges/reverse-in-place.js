@@ -1,4 +1,5 @@
-'use strict';
+
+
 /**
  * Write a function to reverse an array in place
  *
@@ -14,7 +15,22 @@
  */
 
 function reverseInPlace(array) {
+//   return array.reduceRight((prev, curr) => prev + curr);
 
+  for (let i = array.length; i >= 0; i--) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[j]) {
+        array[j] === array[i];
+      }
+    //   console.log('each j loop: ', array[j]);
+    //   console.log('each i loop: ', array[i]);
+    }
+    // console.log('array[i]: ', array[i]);
+  }
+  return array;
 }
+
+console.log(reverseInPlace(['h', 'e', 'l', 'l', 'o']));
+// o    l     l   e     h
 
 module.exports = reverseInPlace;
