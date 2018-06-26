@@ -5,14 +5,22 @@
 // write a function that will find the sum of all the multiples of 3 or 5
 // below 1000 and return that sum.
 
-function sumMultiples3Or5Below1000(num1, num2) {
+function sumLoop (num1, num2) {
   let sum = 0;
-  
+
   for (let i = 1; i <= num2; i++) {
     if (i % num1 === 0) {
       sum += i
     }
   }
+  return sum;
+}
+
+function sumMultiples3Or5Below1000() {
+  let sum = 0;
+  
+  let sum5 = sumLoop(5, 999);
+  let sum30 = sumLoop(30, 999);
   return sum;
 }
 
@@ -22,9 +30,8 @@ function sumMultiples3Or5Below1000(num1, num2) {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-  let sum1 = sumMultiples3Or5Below1000(x, z);
-  let sum2 = sumMultiples3Or5Below1000(y, z);
-  sum = sum1 + sum2;
+  let multiples = x * y;
+  sum = sumLoop(multiples, z)
 
   // console.log('sum1 is : ', sum1);
   // console.log('sum2 is : ', sum2);
@@ -38,4 +45,4 @@ const objectToExport = {
 
 module.exports = objectToExport;
 
-//console.log((sumMultiplesXOrYBelowZ(3, 5, 500)))
+console.log((sumMultiplesXOrYBelowZ(3, 5, 500)))
