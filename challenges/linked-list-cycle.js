@@ -30,10 +30,25 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
+  let curNode = head;
+  let cycleFlag = false;
 
+  while (curNode !== null && !cycleFlag) {
+    if (curNode.breadCrub !== undefined) cycleFlag = true;
+    curNode.breadCrub = true;
+    curNode = curNode.next;
+  }
+
+  curNode = head;
+  while (curNode !== null && curNode.breadCrub !== undefined) {
+    delete curNode.breadCrub;
+    curNode = curNode.next;
+  }
+
+  return cycleFlag;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
