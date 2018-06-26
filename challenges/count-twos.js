@@ -10,18 +10,23 @@
 // countTwos(1000);  -> 300 
 // countTwos(11420);  -> 4483
 
-
+// 100 -> 30 
 function countTwos(num) {
   let counter = 0;
   for (let i = num; i > 0; i--) {
+    console.log('i: ', i);
     if (i.toString().includes('2')) {
-      counter++;
+      i.toString().forEach((digit) => {
+        if (digit === '2') {
+          counter++;
+        }
+      });
     }
   }
   return counter;  
 
 }
 
-console.log(countTwos(11420));
+console.log(countTwos(1000));
 
 module.exports = countTwos;
