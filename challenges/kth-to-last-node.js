@@ -17,12 +17,23 @@
  */
 
 function Node(val) {
-  this.value = val;
-  this.next = null;
+  this.currNode = val; // head
+  this.next = null; // tail
+  this.length = 1;
 }
 
 function kthToLastNode(k, head) {
+  this.head = new Node(head);
+  console.log(this.head.length);
 
+  while (this.currNode) {
+    const current = this.head;
+    // this.next =
+  }
+
+  // const list =
+  console.log('head is: ', this.head);
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+console.log(kthToLastNode(2, a));
+module.exports = { Node, kthToLastNode };

@@ -3,8 +3,7 @@
  */
 
 function highestProduct(array) {
-    if (!Array.isArray(array)) return 0
-    else if (array.length < 3) return 0
+    if (!Array.isArray(array) || array.length < 3) return 0
     else {
 
     // console.log(array);
@@ -17,9 +16,7 @@ function highestProduct(array) {
             if (array[i] < 0) negArr.push(array[i]);
         }
 
-        negArr = negArr.map((num) => {
-            return Math.abs(num);
-        }).sort();
+        negArr = negArr.map(num => Math.abs(num)).sort();
     // console.log(array);
     // console.log(negArr);
 
@@ -41,5 +38,7 @@ function highestProduct(array) {
 // console.log(highestProduct([2, -6, 1]));
 // console.log(highestProduct([2, 5, -3]));
 // console.log(highestProduct([0, -1, 3]));
+// console.log(highestProduct([0, 1]));
+// console.log(highestProduct({0: 1}));
 
 module.exports = highestProduct;

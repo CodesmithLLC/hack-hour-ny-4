@@ -41,12 +41,14 @@ for (let numFreq in modeObj) {
 // console.log('modeObj is: ', modeObj)
 let numValues = Object.keys(modeObj) 
 let resultMode = Math.max(...numValues);
-// console.log(numValues)
-// console.log('resultMode is: ', resultMode);
+console.log(numValues)
+console.log('resultMode is: ', resultMode);
 
-// console.log('modeObj is: ', modeObj)
+console.log('modeObj is: ', modeObj)
 
 return resultMode === meanResult;
 }
+
+console.log(modemean([1,1,2,2,3]));
 
 module.exports = modemean;

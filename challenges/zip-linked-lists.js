@@ -11,6 +11,22 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+
+  // const node = new Node();
+  let node = new Node();
+  let currHead = this.value;
+
+  if (!this.value) {
+    this.value = node(l1);
+    this.next = node(l2)
+  }
+
+  while (this.next) {
+    this.next = currHead;
+  }
+
+  
+
 };
 
 module.exports = {Node: Node, zip: zip};
