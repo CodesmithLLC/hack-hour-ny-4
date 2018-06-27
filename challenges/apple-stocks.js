@@ -15,6 +15,7 @@
 function bestProfit(stock_prices_yesterday) {
   let minPrice = Infinity;
   let maxProfit = -Infinity;
+  if (stock_prices_yesterday.length < 2 || maxProfit <= 0) return 0;
   for (const currentPrice of stock_prices_yesterday) {
     minPrice = currentPrice < minPrice ? currentPrice : minPrice;
     const currentProfit = currentPrice - minPrice;
