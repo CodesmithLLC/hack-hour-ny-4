@@ -13,7 +13,21 @@
   */
 
 function anagrams(string) {
+  const anagramArr = [];
 
+  const recurHelp = (curWord, remLetters) => {
+    if (remLetters.length === 1) return anagramArr.push(curWord + remLetters[0]);
+
+    remLetters.forEach((letter, forInd) => {
+      recurHelp(curWord + letter, remLetters.filter((val, filterInd) => filterInd !== forInd));
+    });
+  };
+
+  string.split('').forEach((letter, forInd, strArray) => {
+    recurHelp(letter, strArray.filter((val, filterInd) => filterInd !== forInd));
+  });
+
+  return anagramArr;
 }
 
 module.exports = anagrams;
