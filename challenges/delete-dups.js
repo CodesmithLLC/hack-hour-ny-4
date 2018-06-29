@@ -52,10 +52,10 @@ function deleteDups(head) {
     
 }
 
-let test = new LinkedList;
-test.head = new Node(1);
-test.head.next = new Node(2);
-test.head.next.next = new Node(3);
-test.head.next.next.next = new Node(3);
+// let test = new LinkedList;
+// test.head = new Node(1);
+// test.head.next = new Node(2);
+// test.head.next.next = new Node(3);
+// test.head.next.next.next = new Node(3);
 
 module.exports = deleteDups;
