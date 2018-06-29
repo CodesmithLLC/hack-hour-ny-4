@@ -13,7 +13,20 @@
   */
 
 function anagrams(string) {
-
+  let combinations = [];
+  let letters = string.split('');
+  let results;
+  if (string.length > 0) {
+    results = letters.reduce((acc, curr) => (acc.concat(curr)));
+  } else {
+    return combinations;
+  }
+  // console.log('results: ', results);
+  combinations.push(results);
+  console.log('combinations: ', combinations);
+  anagrams(string.reverse().slice(1));
 }
+
+console.log(anagrams('abc'));
 
 module.exports = anagrams;
