@@ -22,15 +22,17 @@
  */
 
 function EventEmitter() {
-
+  this.eventMem = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if (this.eventMem[funcName] === undefined) this.eventMem[funcName] = [func];
+  else this.eventMem[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  if (this.eventMem[funcName] === undefined) return 'No such event Sue';
+  else this.eventMem[funcName].forEach((func) => func(...args));
 };
 
 module.exports = EventEmitter;
