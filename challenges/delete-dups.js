@@ -11,9 +11,15 @@
  */
 
 
-
 function deleteDups(head) {
-
+  let curr = head;
+  if (!curr) return 0;
+  if (curr === curr.next) {
+    curr = curr.next.next;
+    curr.next = null;
+  }
+  return deleteDups(head.next);
 }
+
 
 module.exports = deleteDups;
