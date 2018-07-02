@@ -45,4 +45,4 @@ const objectToExport = {
 
 module.exports = objectToExport;
 
-console.log((sumMultiplesXOrYBelowZ(3, 5, 500)))
+//console.log((sumMultiplesXOrYBelowZ(3, 5, 500)))
