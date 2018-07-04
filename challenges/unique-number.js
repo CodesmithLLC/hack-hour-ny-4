@@ -11,12 +11,14 @@
  */
 // O(n) time
 function uniqueNumber(array) {
-  return array.reduce((acc, curr, i) => {
+  const result = array.reduce((acc, curr) => {
     acc[curr] = (acc[curr] || 0) + 1;
-    if (acc[curr] < 2) acc.once = curr;
     return acc;
-  }, { once: null }).once;
+  }, {});
+  for (const key in result) {
+    if (result[key] === 1) return key;
+  }
 }
-// console.log(uniqueNumber([1, 2, 1, 3, 3, 3]));
+console.log(uniqueNumber([2, 2, 3, -1, 2, -1]));
 
 module.exports = uniqueNumber;
