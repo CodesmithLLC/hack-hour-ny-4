@@ -10,7 +10,11 @@
  */
 
 function getAllProducts(array) {
-
+  return array.map((el, mapInd) => {
+    return array.reduce((acc, curElem, redInd) => {
+      return mapInd === redInd ? acc : acc * curElem;
+    }, 1);
+  });
 }
 
 module.exports = getAllProducts;
