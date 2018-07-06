@@ -10,6 +10,17 @@
  *
  */
 function uniqueNumber(array) {
+  // O(nlong) complexity
+  // array = array.sort((a, b)=> a - b);
+  // for(let i = 0; i < array.length-1; i=i+2) {
+  //   if(array[i] !== array[i+1]) {
+  //     return array[i]
+  //   } 
+  // }
+	// if(array.length % 2 !== 0) return array[array.length-1];
+  // return false;
+
+  // O(n) complexity - use bitwise
 
 }
 

@@ -30,6 +30,9 @@ function deleteDups(head) {
     }
   }
   return head;
+
+  // Second approach
+  
 }
 
 module.exports = deleteDups;

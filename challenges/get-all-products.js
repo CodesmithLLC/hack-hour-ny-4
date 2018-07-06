@@ -10,7 +10,26 @@
  */
 
 function getAllProducts(array) {
-
+  let result = {};
+  function rec(arr, subArr) {
+    if(subArr.length === array.length-1) {
+			return result[subArr] = subArr;
+		}
+    for(let i = 0; i < arr.length; i++) {
+			let select = arr[i];
+      let rest = arr.slice(0, i).concat(arr.slice(i+1));
+      rec(rest, subArr.concat(select) );
+    }
+  }
+  rec(array, []);
+  return Object.values(result).map((el)=>{
+		return el.reduce((acc, cur)=>{
+			acc = acc*cur;
+			return acc;	
+		});
+	}).filter((val, i, self)=>{
+		return self.indexOf(val) === i;
+	});
 }
 
 module.exports = getAllProducts;
