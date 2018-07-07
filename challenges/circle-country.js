@@ -23,7 +23,13 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  const distForm = (x1, x2, y1, y2) => Math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2));
+  let crossCount = 0;
+  x.forEach((xVal, ind) => {
+    if (distForm(xVal, start_x, y[ind], start_y) < r[ind] ^
+        distForm(xVal, end_x, y[ind], end_y) < r[ind]) crossCount += 1;
+  });
+  return crossCount;
 }
 
 module.exports = circleCountry;
