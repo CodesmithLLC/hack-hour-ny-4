@@ -20,10 +20,10 @@ function bubbleSort(array) {
         }
     }
 } while (sorted)
-    // console.log(array);
+     return array;
 
 }
 
 module.exports = bubbleSort;
 
-// bubbleSort([7,3,5,2,8,1]);
+//  bubbleSort([7,3,5,2,8,1]);
