@@ -1,7 +1,8 @@
 /**
  *  Circle Country is a country that contains several circular-shaped districts.
  *  Some districts may be situated inside other districts, but their borders do not intersect or touch.
- *  Tyus is a resident of Circle Country. When he travels between two locations, he always tries to cross the fewest number of district borders as possible.
+ *  Tyus is a resident of Circle Country. When he travels between two locations, he always tries to cross 
+ *  the fewest number of district borders as possible.
  *
  *  You are given an array x, an array y, and an array r
  *
@@ -12,8 +13,8 @@
  *    - (start_x, start_y) are Tyus' starting coordinates and (end_x, end_y) are Tyus' destination coordinates
  *
  *
- *  Write an efficient algorithm for finding the minimum number of district borders Tyus must cross in order to get from
- *  (start_x, start_y) to (end_x, end_y)
+ *  Write an efficient algorithm for finding the minimum number of district borders Tyus must cross 
+ *  in order to get from (start_x, start_y) to (end_x, end_y)
  *
  *  Constraints:
  *    - x, y and r will each contain the same number of elements
@@ -23,7 +24,15 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  // Iterating through all circles, reducing to a count of # of times a border was crossed.
+  return r.reduce((acc, rad, i) => {
+    // Distance from current circle center at the start.
+    const startDistance = Math.hypot(x[i] - start_x, y[i] - start_y)
+    // Distance from current circle center at the end.
+    const endDistance = Math.hypot(x[i] - end_x, y[i] - end_y)
+    // If radius is in between startDistance and endDistance, increase counter.
+    return (startDistance > rad && rad > endDistance) || (startDistance < rad && rad < endDistance) ? ++acc : acc
+  }, 0)
 }
 
 module.exports = circleCountry;
