@@ -29,4 +29,4 @@ function binToDec(binary) {
 }
 
 module.exports = binToDec;
-console.log(binToDec('0101'));
+//console.log(binToDec('0101'));

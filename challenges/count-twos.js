@@ -28,4 +28,93 @@ return numOfTwos
 
 module.exports = countTwos;
 
-//console.log(countTwos(11420));
+console.log(countTwos(1000));
+
+// function countTwos(num) {
+//     let totalCount = 0; 
+//     for (let i=1; i <= num; i += 1) {
+//       const count = i.toString()
+//         .split('')
+//         .filter(char => char === '2')
+//         .length;
+//       totalCount += count;
+//     }
+//     return totalCount;
+//   }
+  
+//   // function countTwos(num) {
+//   //   var count = 0;
+//   //   if (num < 2) return 0;
+//   //   for (var i = 2; i <= num; i++) {
+//   //     var string = i.toString();
+//   //     for (var j = 0; j < string.length; j++) {
+//   //       if (string[j] === '2') count++;
+//   //     }
+//   //   }
+//   //   return count;
+//   // }
+  
+//   function countTwos(num) {
+//     let totalCount = 0;
+//     // Split the number into an easy to solve multiple of 10 and the remaining
+//     let numDigits = Math.floor(Math.log10(num) + 1);
+//     const base = 10**(numDigits - 1);
+//     const remaining = num - base;
+//     const baseCount = 1 * (numDigits - 1) * 10**(numDigits - 2);
+//     totalCount += baseCount;
+  
+//     // Count the number of twos in the remaining
+//     for (let i=base; i <= num; i += 1) {
+//       const count = i.toString()
+//         .split('')
+//         .filter(char => char === '2')
+//         .length;
+//       totalCount += count;
+//     }
+//     return totalCount;
+//   }
+  
+//   function countTwos(num) {
+//     if (num === 0) return 0;
+//     // Count the number of digits
+//     const numDigits = Math.floor(Math.log10(num) + 1);
+//     // Get the first digit
+//     const firstDigit = Math.floor(num/10**(numDigits - 1));
+  
+//     // Split the number into an easy to solve multiple of 10 and the remainder
+//     const base = firstDigit * 10**(numDigits - 1);
+//     const remaining = num - base;
+  
+//     // Count the number of twos in the remaining amount
+//     const remainderCount = countTwos(remaining);
+  
+//     const baseCount = firstDigit * (numDigits - 1) * 10**(numDigits - 2);
+//     if (firstDigit < 2) return  baseCount + remainderCount; // base + remaining
+//     if (firstDigit === 2) return baseCount + remainderCount + (remaining + 1); //base + remaining + adjust for first digit
+//     if (firstDigit > 2) return baseCount + remainderCount + 10**(numDigits - 1); //base + remaining + adjust for first digit
+//   }
+  
+  
+//   function countTwos(num) {
+//     // Count the number of digits
+//     let numDigits = Math.floor(Math.log10(num) + 1);
+//     let totalCount = 0;
+//     while (num > 0) {
+//       // Get the first digit
+//       const firstDigit = Math.floor(num/10**(numDigits - 1));
+//       // Split the number into an easy to solve multiple of 10 and the remainder
+//       const base = firstDigit * 10**(numDigits - 1);
+//       const remaining = num - base;
+//       // Count the number of twos in the base value
+//       const baseCount = firstDigit * (numDigits - 1) * 10**(numDigits - 2);
+      
+//       if (firstDigit < 2) totalCount += baseCount; 
+//       if (firstDigit === 2) totalCount += baseCount + (remaining + 1); //base +  adjust for first digit
+//       if (firstDigit > 2) totalCount += baseCount + 10**(numDigits - 1); //base + adjust for first digit
+      
+//       // Pass on the remaining amount to the next loop
+//       num = remaining;
+//       numDigits -= 1;
+//     }
+//     return totalCount;
+//   }

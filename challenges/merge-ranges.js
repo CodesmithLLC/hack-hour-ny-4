@@ -11,7 +11,38 @@
 
 
 function mergeRanges(array) {
+    let flattened = array.reduce(
+    function(accumulator, currentValue) {
+          return accumulator.concat(currentValue);
+    },
+    []
+    );
+    flattened.sort(function(a, b){return a - b});
+    let newArr;
+    for (i = 0; i < flattened.length; i++){
+        newArr.push();
+    }
+    console.log(flattened);
+
 
 }
 
 module.exports = mergeRanges;
+
+var times = [[4, 8], [3, 5], [0, 1], [10, 12], [9, 10]]
+mergeRanges(times);
+
+ //function mergeRanges(array) {
+//     array.sort((a, b) => a[0] - b[0])
+//     let i = 0;
+//     while(i < array.length - 1){
+//       if(array[i+1][0] <= array[i][1]){
+//         if(array[i+1][1] > array[i][1]){
+//           array[i][1] = array[i+1][1]
+//         }
+//         array.splice(i+1, 1)
+//       }
+//       else i++;  
+//     }
+//     return array
+//   }

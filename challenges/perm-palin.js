@@ -25,7 +25,7 @@ function permPalin(str) {
     //console.log(charArr);
 }
 
-//console.log(permPalin('cbac'));
+//console.log(permPalin('abab'));
 
 
 

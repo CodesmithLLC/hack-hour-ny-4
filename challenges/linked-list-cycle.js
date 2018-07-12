@@ -31,9 +31,20 @@ var Node = function(value) {
   this.value = value;
   this.next = null;
 }
+//Solution is tortoise and Hare pardigm OR
+// JSON.Strigify try catch
 
 function hasCycle(head) {
-
+  let h = head;
+  let t = head;
+  while (h && h.next){
+    h = h.next.next;
+    t = t.next;
+    if (h === t){
+      return true;
+    }
+  }
+  return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}

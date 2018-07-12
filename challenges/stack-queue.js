@@ -59,3 +59,98 @@ let myTestQueue = new Queue();
 //console.log(myStartStack);
 //console.log(myEndStack);
 //console.log(myTestQueue);
+
+
+// SOLUTION I SHOWED: , also I decided it made sense to return the length 
+// of the queue on an enqueue, so I added that.
+/**
+ * Create a stack.Then create a queue using two stacks.
+ */
+// function Stack() {
+//     this.storage = {};
+//     this.index = 0;
+//   }
+  
+//   Stack.prototype.push = function(value) {
+//     this.storage[this.index++] = value;
+//     return this.index;
+//   }
+  
+//   Stack.prototype.pop = function(){
+//     let output = this.storage[--this.index];
+//     delete this.storage[this.index]
+//     return output;
+//   }
+//   /**
+//    * Queue Class
+//    */
+//   function Queue() {
+//     this.in = new Stack();
+//     this.out = new Stack();
+//   }
+  
+//   Queue.prototype.enqueue = function(value){
+//     this.in.push(value);
+//     return this.in.index + this.out.index;
+//   }
+  
+//   Queue.prototype.dequeue = function(value){
+//     if(this.out.index > 0) return this.out.pop();
+//     while(this.in.index > 1){
+//       this.out.push(this.in.pop());
+//     }
+//     return this.in.pop();
+//   }
+  
+//   // let x = new Stack();
+//   // console.log('PUSH: ', x.push(5));
+//   // console.log('PUSH: ', x.push(6));
+//   // console.log('PUSH: ', x.push(7));
+//   // console.log('POP: ', x.pop());
+//   // console.log('stack object: ', x);
+//   let y = new Queue();
+//   console.log('enqueue: ', y.enqueue(12));
+//   console.log('enqueue: ', y.enqueue(13));
+//   console.log('enqueue: ', y.enqueue(14));
+//   // console.log('\n', y);
+//   console.log('dequeue: ', y.dequeue());
+//   // console.log('\n', y);
+//   console.log('enqueue: ', y.enqueue(15));
+//   // console.log('\n', y);
+  
+  
+//   // ALTERNATE "cheating" way - but I do like the isEmpty method they added to the stack
+//   // which helped for seeing with item to dequeue
+//   function Stack() {
+//     this.items = [];
+//   }
+  
+//   Stack.prototype.push = function(item) {
+//     this.items.push(item);
+//   };
+  
+//   Stack.prototype.pop = function() {
+//     return this.items.pop();
+//   };
+  
+//   Stack.prototype.isEmpty = function() {
+//     return this.items.length;
+//   };
+  
+//   function Queue() {
+//     this.in = new Stack();
+//     this.out = new Stack();
+//   }
+  
+//   Queue.prototype.enqueue = function(item) {
+//     this.in.push(item);
+//   };
+  
+//   Queue.prototype.dequeue = function() {
+//     if (this.out.isEmpty()) {
+//       while (!this.in.isEmpty()) {
+//         this.out.push(this.in.pop());
+//       }
+//     }
+//     return this.out.pop();
+//   };

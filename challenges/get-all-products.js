@@ -14,3 +14,34 @@ function getAllProducts(array) {
 }
 
 module.exports = getAllProducts;
+
+// function getAllProducts(array) {
+//     if (!array || !array.length) return [0];
+//     const front = [];
+//     const back = [];
+//     const result = [];
+
+//     let productSoFar = 1;
+
+//     //iterate through the input array forward
+//     for (let i = 0; i < array.length; ++i) {
+//         //start with 1 to exclude current value
+//         front[i] = productSoFar;
+//         //multiply the previous element in front array to previous  element in the input array
+//         productSoFar *= array[i];
+//     }
+
+//     //do the same but backwards for the back array
+//     productSoFar = 1;
+//     for (let j = array.length - 1; j >= 0; --j) {
+//         back[j] = productSoFar;
+//         productSoFar *= array[j];
+//     }
+
+//     //multiply both arrays
+//     for (let k = 0; k < array.length; k++) {
+//         result[k] = front[k] * back[k];
+//     }
+
+//     return result;
+// }
