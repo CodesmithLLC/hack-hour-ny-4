@@ -15,6 +15,7 @@
  */
 
 function countStairs(n) {
+  if(!n) return 1;
   let result = [];
   function rec(subArr) {
     let total = subArr.reduce((acc, cur) => acc += cur, 0);
