@@ -10,8 +10,45 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
+///
 
+function genCharArray(charA, charZ) {
+    var a = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
+    for (; i <= j; ++i) {
+        a.push(String.fromCharCode(i).toUpperCase());
+    }
+    return a;
 }
+var letters = genCharArray('a', 'z');
+//
+
+function matchWord(str) {
+    strArr = str.toUpperCase().split('');
+    compArr = str.toUpperCase().split('');
+    //console.log(strArr)
+    //var letters = /^[A-Za-z]+$/;
+    //var letters = [A, B, C, D, E];
+    //console.log(letters)
+    stack = [];
+    //
+    for (let i = 0; i < strArr.length; i++) {
+        if (letters.includes(strArr[i])) {
+          stack.push(strArr[i]);  
+        }
+    }
+      //let popped = stack.pop();
+      //console.log(popped);
+      console.log(stack)
+      console.log(stack.reverse())
+      if (stack === stack.reverse()){
+         return true;
+      }
+      return false;
+    };
+//  
+
+//}
 
 module.exports = matchWord;
+
+console.log(matchWord('for__if__rof__fi'));

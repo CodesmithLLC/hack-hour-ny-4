@@ -14,6 +14,16 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  
+  if (tree.right === null && tree.left === null){
+    return true;
+  }
+
+  //find height of left
+  //find height of right
+
+  //recursively call until root is reached.
+  
 
 }
 

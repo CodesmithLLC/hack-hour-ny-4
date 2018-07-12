@@ -41,7 +41,22 @@ function bestProfit(stock_prices_yesterday) {
 //    return profit;
 // }
 
-//console.log(bestProfit([100,300,500,200,50,150,950]));
+console.log(bestProfit([100,300,500,200,50,150,950]));
 //console.log(bestProfit(8));
 
 module.exports = bestProfit;
+
+// function bestProfit(stock_prices_yesterday) {
+//     // set the minimum for the whole day
+//     let dayMin = Infinity;
+//     // set the max possible profit
+//     let maxProfit = -Infinity;
+//     // maxProfit will be the highest price minus the low for the day so far
+//     // Loop through and check each price
+//     stock_prices_yesterday.forEach((price) => {
+//       dayMin = Math.min(price, dayMin);
+//       maxProfit = Math.max(price - dayMin, maxProfit);
+//     });
+//     // return maxProfit
+//     return maxProfit;
+//   }

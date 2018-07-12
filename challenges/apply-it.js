@@ -26,7 +26,22 @@
  */
 
 function applyIt(func, args) {
-
+    //console.log(args);
+    this.name = args[0];
+    this.age = args[1];
+    this.location = args[2];
+    //console.log(this.name);
+    //return
 }
 
 module.exports = applyIt;
+
+ var jae = function(name, age, location) {
+         return name + " is " + age + " and he lives in " + location;
+       };
+
+//var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+//console.log(jaero);
+
+// jaero();
+console.log(applyIt(jae,["Jae", 19, "South Carolina"]));

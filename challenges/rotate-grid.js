@@ -16,8 +16,30 @@
  * BONUS: Do this in place
  */
 
+var sampleGrid = [  [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]  ]
+
 function rotateGrid(grid, n) {
 
+    newGrid = []
+
+    var newGrid = grid.map(function(arr) {
+        return arr.slice();
+    });
+
+    for (let i =0; i < n; i++){
+        //console.log(newGrid[i][n]);
+        // console.log(newGrid[0][i]);
+        newGrid[i][n] = newGrid[0][i];
+        //newGrid[i][n - 1] = newGrid[1][i];
+    } 
+    
+    //console.log(newGrid[0][0])
+    return newGrid;
+
 }
+
+console.log(rotateGrid(sampleGrid, 3));
 
 module.exports = rotateGrid;
