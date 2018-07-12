@@ -15,7 +15,19 @@
  */
 
 function countStairs(n) {
+  if (n === 0) return 0;
+  let ways = 0;
 
+  const recurHelp = (curStair) => {
+    if (curStair + 1 === n) return ways += 1;
+    recurHelp(curStair + 1);
+    if (curStair + 2 === n) return ways += 1;
+    recurHelp(curStair + 2);
+  }
+
+  recurHelp(0);
+
+  return ways;
 }
 
 module.exports = countStairs;
