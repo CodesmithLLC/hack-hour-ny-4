@@ -31,24 +31,22 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  if(!this.head) return false;
-  let cur = this.head;
-  while(cur) {
-    if(cur.val === val) {
-      if(cur === this.head) {
-        return false;
-      }
-      if(cur === this.tail) {
-        this.tail = cur.prev;
-        cur.prev.next = null;
-      } else {
+  if(this.head.val === val) {
+    this.head = this.head.next;
+    this.head.prev = null;
+  } else if(this.tail.val === val) {
+    this.tail = this.tail.prev;
+    this.tail.next = null;
+  } else {
+    let cur = this.head;
+    while(cur.next) {
+      if(cur.val === val) {
         cur.prev.next = cur.next;
         cur.next.prev = cur.prev;
       }
+      cur = cur.next;
     }
-    cur = cur.next;
   }
-  return true;
 };
 
 module.exports = LinkedList;
