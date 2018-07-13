@@ -18,7 +18,37 @@
  */
 
 function newIntersections(x, y){
+  let xMem = {};
+  for (let i = 0; i < x.length; i += 1) {
+    if (xMem[x[i]] === undefined) xMem[x[i]] = [y[i]];
+    else xMem[x[i]].push(y[i])
+  }
+  Object.keys(xMem).forEach((key) => {
+    if (xMem[key].length < 2) delete xMem[key];
+    else xMem[key] = [Math.min(...xMem[key]), Math.max(...xMem[key])];
+  });
 
+  let yMem = {};
+  for (let i = 0; i < y.length; i += 1) {
+    if (yMem[y[i]] === undefined) yMem[y[i]] = [x[i]];
+    else yMem[y[i]].push(x[i])
+  }
+  Object.keys(yMem).forEach((key) => {
+    if (yMem[key].length < 2) delete yMem[key];
+    else yMem[key] = [Math.min(...yMem[key]), Math.max(...yMem[key])];
+  });
+
+  let intCount = 0;
+  Object.keys(xMem).forEach((xKey) => {
+    Object.keys(yMem).forEach((yKey) => {
+      if (yKey > xMem[xKey][0] 
+          &&  yKey < xMem[xKey][1] 
+          &&  xKey > yMem[yKey][0] 
+          &&  xKey < yMem[yKey][1]) intCount += 1;
+    });
+  });
+
+  return intCount;
 }
 
 module.exports = newIntersections;
