@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  let xCor = Number(str[1]);
+  let yCor = Number(str[3]);
+  if(xCor < 1 || xCor > 8 || yCor < 1 || yCor > 8) {
+    return false;
+  } else if(xCor === 1 || xCor === 8) {
+    if(yCor === 1 || yCor === 8) {
+      return 3;
+    } else {
+      return 5;
+    }
+  } else if(yCor === 1 || yCor === 8) {
+    if(xCor === 1 || xCor === 8) {
+      return 3;
+    } else {
+      return 5;
+    }
+  } else {
+    return 8;
+  }
 }
 
 module.exports = knightjumps;
