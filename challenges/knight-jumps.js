@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  const CHESS_BOARD_MAX_WIDTH = 8;
+  const x = parseInt(str[1]);
+  const y = parseInt(str[3]);
+  const possMoves = [
+    [1, 2],
+    [-1, 2],
+    [-2, 1],
+    [-2, -1],
+    [-1, -2],
+    [1, -2],
+    [2, -1],
+    [2, 1]
+  ];
+  return possMoves.reduce((acc, curMove) => {
+    return (x + curMove[0] <= CHESS_BOARD_MAX_WIDTH
+      && x + curMove[0] >= 1
+      && y + curMove[1] <= CHESS_BOARD_MAX_WIDTH
+      && y + curMove[1] >= 1) ? acc + 1 : acc;
+  }, 0);
 }
 
 module.exports = knightjumps;
