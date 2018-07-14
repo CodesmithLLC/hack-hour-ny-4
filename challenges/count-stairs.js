@@ -15,19 +15,30 @@
  */
 
 function countStairs(n) {
-  if(!n) return 1;
-  let result = [];
-	let steps = [1,2];
-  function rec(subArr) {
-    let total = subArr.reduce((acc, cur) => acc += cur,0);
-    if(total > n) return;
-    if(total === n) return result.push(subArr);
-		for(let i = 0; i < steps.length; i++) {
-			rec(subArr.concat(steps[i]));
-		}
+  let arr = [1, 2];
+  if(n === 0) return arr[0];
+  if(n === 1) return arr[0];
+  for(let i = 2; i < n; i++) {
+    arr[i] = arr[i-1] + arr[i-2];
   }
-	rec([]);
-  return result.length;
+  return arr[n-1];
 }
+
+// // First approach
+// function countStairs(n) {
+//   if(!n) return 1;
+//   let result = [];
+// 	let steps = [1,2];
+//   function rec(subArr) {
+//     let total = subArr.reduce((acc, cur) => acc += cur,0);
+//     if(total > n) return;
+//     if(total === n) return result.push(subArr);
+// 		for(let i = 0; i < steps.length; i++) {
+// 			rec(subArr.concat(steps[i]));
+// 		}
+//   }
+// 	rec([]);
+//   return result.length;
+// }
 
 module.exports = countStairs;
