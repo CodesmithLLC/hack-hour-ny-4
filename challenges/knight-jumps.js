@@ -17,15 +17,35 @@ function knightjumps(str) {
     return false;
   } else if(xCor === 1 || xCor === 8) {
     if(yCor === 1 || yCor === 8) {
+      return 2;
+    } else if(yCor === 2 || yCor === 7) {
       return 3;
     } else {
-      return 5;
+      return 4;
     }
   } else if(yCor === 1 || yCor === 8) {
     if(xCor === 1 || xCor === 8) {
+      return 2;
+    } else if(xCor === 2 || xCor === 7) {
       return 3;
     } else {
-      return 5;
+      return 4;
+    }
+  } else if(xCor === 2 || xCor === 7) {
+    if(yCor === 1 || yCor === 8) {
+      return 3;
+    } else if(yCor === 2 || yCor === 7) {
+      return 4;
+    } else {
+      return 6;
+    }
+  } else if(yCor === 2 || yCor === 7) {
+    if(xCor === 1 || xCor === 8) {
+      return 3;
+    } else if(xCor === 2 || xCor === 7) {
+      return 4;
+    } else {
+      return 6;
     }
   } else {
     return 8;
