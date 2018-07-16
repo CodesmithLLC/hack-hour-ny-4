@@ -10,6 +10,19 @@
 //  example input:
 // var str = "(4 5)"
 
+// function knightjumps(str) {
+  
+// }
+
+// function makeKnightBoard() {
+//   for(let i = 0; i < 8; i++){
+    
+//   }
+// }
+
+
+// First Brute Force Approach.
+
 function knightjumps(str) {
   let xCor = Number(str[1]);
   let yCor = Number(str[3]);
