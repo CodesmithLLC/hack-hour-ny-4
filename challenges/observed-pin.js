@@ -43,7 +43,35 @@ expectations = {
 
 
 function getPINs(observed) {
+  dict = {
+    1: '124',
+    2: '2135',
+    3: '326',
+    4: '4157',
+    5: '52468',
+    6: '6359',
+    7: '748',
+    8: '85790',
+    9: '968',
+    0: '08'
+  }
+  const comb = [];
 
+  const recurHelp = (curStr, ind) => {
+    let otherPoss = dict[observed[ind]];
+    let newStr;
+    for (let i = 0; i < otherPoss.length; i += 1) {
+      newStr = curStr.slice(0, ind) + otherPoss[i] + curStr.slice(ind + 1);
+      if (ind === observed.length - 1) comb.push(newStr);
+      else {
+        recurHelp(newStr, ind + 1);
+      }
+    }
+  }
+
+  recurHelp(observed, 0);
+  
+  return comb;
 }
 
 
