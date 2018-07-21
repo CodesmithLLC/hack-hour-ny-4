@@ -10,7 +10,22 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  let greatestVal = -Infinity;
 
+  const recurFunc = (remItems, curWeight, curVal) => {
+    remItems.forEach((item, ind) => {
+      if (curWeight + item.weight <= weightAvailable) {
+        if (curVal + item.value > greatestVal) greatestVal = curVal + item.value;
+        let newRemItems = remItems.slice(0)
+        newRemItems.splice(ind, 1);
+        recurFunc(newRemItems, curWeight + item.weight, curVal + item.value);
+      }
+    })
+  };
+
+  recurFunc(items, 0, 0);
+
+  return greatestVal;
 };
 
 module.exports = solveKnapsack;
