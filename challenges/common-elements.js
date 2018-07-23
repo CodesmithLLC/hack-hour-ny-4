@@ -13,7 +13,20 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
+  const returnCommonElem = (arr1, arr2) => {
+    const obj1 = arr1.reduce((obj, curElem) => {
+      obj[curElem] = false;
+      return obj;
+    }, {});
+    const obj2 = arr2.reduce((obj, curElem) => {
+      obj[curElem] = true;
+      return obj;
+    }, {});
 
+    return Object.keys(obj1).filter((val) => obj2[val] !== undefined).map((curElem) => isNaN(+curElem) ? curElem : +curElem);
+  }
+
+  return returnCommonElem(returnCommonElem(returnCommonElem(array1, array2), array3), array4);
 }
 
 module.exports = commonElements;
