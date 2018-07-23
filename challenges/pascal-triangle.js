@@ -39,18 +39,36 @@ function pascalTriangle(numRows) {
   result.push([1,1]);
   if(numRows === 2) return result;
   rec = (currentRow) => {
-    let arr = result[result.length - 1];
-    let subArr = [1];
-    for(let i = 0; i < arr.length - 1; i++) {
-      subArr.push(arr[i]+arr[i+1]);
+    let lastRow = result[result.length - 1];
+    let row = [1];
+    for(let i = 0; i < lastRow.length - 1; i++) {
+      row.push(lastRow[i]+lastRow[i+1]);
     }
-    subArr.push(1);
-    result.push(subArr);
+    row.push(1);
+    result.push(row);
     if(currentRow === numRows) return;
-    else rec(currentRow+1);
+    else rec(currentRow + 1);
   }
   rec(3);
   return result;
 }
+
+// function pascalTriangle(numRows) {
+//   if(numRows <= 0 || typeof numRows !== 'number') return 0;
+//   let result = [[1]];
+//   if(numRows === 1) return result;
+//   result.push([1,1]);
+//   if(numRows === 2) return result;
+//   for(let i = 2; i < numRows; i++) {
+//     let lastRow = result[i-1];
+//     let row = [1];
+//     for(let i = 0; i < lastRow.length - 1; i++) {
+//       row.push(lastRow[i] + lastRow[i+1]);
+//     }
+// 		row.push(1);
+//     result.push(row);
+//   }
+//   return result;
+// }
 
 module.exports = pascalTriangle;

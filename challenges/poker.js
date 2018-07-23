@@ -20,6 +20,34 @@
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 function poker(hand1, hand2) {
+  let player1 = score(hand1);
+  let player2 = score(hand2);
+  if(player1 > player2) {
+    return 'Player 1 wins';
+  } else if(player1 < player2) {
+    return 'Player 2 wins';
+  } else if(hplayer1 === player2) {
+    return 'Draw';
+  }
+}
+
+function score(arr) {
+  let counts = arr.reduce((acc, cur)=>{
+    if(acc[cur]) acc[cur]++;
+    else acc[cur] = 1;
+    return acc;
+  }, {});
+  Object.values(counts).sort((a,b)=>b-a).forEach((count)=>{
+    if(count === 4) return 99;
+    let threeKind = false;
+    if(count === 3) {
+      threeKind = true;
+    }
+    let twoKind = 0;
+    if(count === 2) {
+      twoKind++;
+    }
+  });
 
 }
 

@@ -1,3 +1,4 @@
+
 /*
 Alright, detective, one of our colleagues successfully observed our target person, Robby the robber. 
 We followed him to a secret warehouse, where we assume to find all the stolen stuff. The door to 
@@ -34,17 +35,87 @@ Detective, we count on you!
 expectations = {
   "8": ["5", "7", "8", "9", "0"],
   "11": ["11", "22", "44", "12", "21", "14", "41", "24", "42"],
-  "369": ["339","366","399","658","636","258","268","669","668","266","369","398","256","296","259","368","638","396","238","356","659","639","666","359","336","299","338","696","269","358","656","698","699","298","236","239"],
+  "369": ["339","366","399","658","636","258","268","669","668","266","369","398","256","296","259","368","638","396",
+          "238","356","659","639","666","359","336","299","338","696","269","358","656","698","699","298","236","239"],
 }
 
 */
 
+// function getPINs(observed) {
+//   let observedNums = observed.split('');
+//   const possible = [
+//     [8, 0],
+//     [1, 2, 4],
+//     [1, 2, 3, 5],
+//     [2, 3, 6],
+//     [1, 4, 5, 7],
+//     [2, 4, 5, 6, 8],
+//     [3, 5, 6, 9],
+//     [4, 7, 8],
+//     [5, 7, 8, 9, 0],
+//     [6, 8, 9]
+//   ];
+//   let result = [];
+//   for(let i = 0; i < observedNums.length; i++) {
+    
+//   }
 
+//   rec = (curNum, pwd) => {
+//     if(pwd.length === observed.length) result.push(pwd);
+//     let possibleNums = possible[Number(curNum)];
+//     if(curNum === '0') {
+      
+//     } else if(curNum === '1') {
+      
+//     } else if(curNum === '2') {
+
+//     } else if(curNum === '3') {
+
+//     } else if(curNum === '4') {
+
+//     } else if(curNum === '5') {
+
+//     } else if(curNum === '6') {
+
+//     } else if(curNum === '7') {
+
+//     } else if(curNum === '8') {
+
+//     } else if(curNum === '9') {
+
+//     } 
+//   }
+
+
+// }
 
 
 function getPINs(observed) {
-
+  const pad = {
+  "1": ['1', '2', '4'],
+  "2": ['1', '2', '3', '5'],
+  "3": ['2', '3', '6'],
+  "4": ['1', '4', '5', '7'],
+  "5": ['2', '4', '5', '6', '8'],
+  "6": ['3', '5', '6', '9'],
+  "7": ['4', '7', '8'],
+  "8": ['5', '7', '8', '9', '0'],
+  "9": ['6', '8', '9'],
+  "0": ['8', '0'],
+  };
+  let possibilites = [''];
+  while(observed){
+    let adjacent = pad[observed[0]];
+    let newPossibs = [];
+    for(let i = 0; i < adjacent.length; i++){
+      for(let j = 0; j < possibilites.length; j++){
+        newPossibs.push(possibilites[j] + adjacent[i])
+      }
+    }
+    observed = observed.slice(1);
+    possibilites = newPossibs;
+  }
+  return possibilites
 }
-
 
 module.exports = getPINs
