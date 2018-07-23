@@ -25,8 +25,15 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  //get sum of all integers from 1 to (N+1) including missing element
+  //using sum of linear series of number: n*(n+1)/2, n = Array.length + 1
+  const total = (array.length + 1) * (array.length + 2) / 2;
   
+  //subtract all present integers from sum to find missing element (can use reduce)
+  return array.reduce((total, value) => {
+    return total - num;
+  }, total)
 }
 
 module.exports = missingNum;
