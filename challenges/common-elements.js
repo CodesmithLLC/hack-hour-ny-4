@@ -33,7 +33,10 @@ function commonElements(array1, array2, array3, array4){
 
   let result = [];
   for(let key in count) {
-    if(count[key] === 4) result.push(key); 
+    if(count[key] === 4) {
+			if(isNaN(Number(key))) result.push(key);
+			else result.push(Number(key));
+		}
   }
 
   return result.length > 0 ? result : "Nothing in Common!";
