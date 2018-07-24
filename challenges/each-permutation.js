@@ -22,6 +22,23 @@ eachPermutation([1, 2, 3], function(perm) {
 
 function eachPermutation(arr, callback) {
 
+  const recurHelp = (curArr, remArr) => {
+    if (remArr.length === 1) {
+      curArr.push(remArr[0]);
+      callback(curArr);
+    }
+    else {
+      remArr.forEach((elem, ind) => {
+        let newCurArr = curArr.slice(0);
+        let newRemArr = remArr.slice(0);
+        newCurArr.push(elem);
+        newRemArr.splice(ind, 1);
+        recurHelp(newCurArr, newRemArr);
+      })
+    }
+  }
+
+  recurHelp([], arr);
 }
 
 
