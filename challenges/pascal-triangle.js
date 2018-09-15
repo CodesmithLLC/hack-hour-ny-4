@@ -33,7 +33,21 @@
 */
 
 function pascalTriangle(numRows) {
+  // each row is 1 plus the row before it 
+  let triangle = [];
+  for (let i = 0; i < numRows; i++) {
+    triangle = new Array(i);
+    triangle.unshift(1);
+    if (triangle[1])
+    console.log('triangle: ', triangle);
+    
+  }
 
+  // need to push the leftmost number into each row
+  // if more than 2 elements, sum up each pair and put into subsequent array 
+  // only 1 side -> middle is what you need, the other side is a repeat
 }
+
+pascalTriangle(6);
 
 module.exports = pascalTriangle;

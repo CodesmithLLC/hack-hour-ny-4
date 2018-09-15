@@ -11,7 +11,18 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let counter = 0;
+  if (str[1] >= 3 && str[3] >= 1) {
+    counter++;  
+    // recursive call with the new position? how to eliminate option...
+  } else if (str[1] >= 1 && str[3] >=3) {
+    counter++;
+  } 
 
+  return counter;
+  // +- 3 on either x or y, +- 1 x or y has to be greater than or equal to 0
+  // count every combination
+  // return num of combinations
 }
 
 module.exports = knightjumps;

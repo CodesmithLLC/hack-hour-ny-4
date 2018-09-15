@@ -25,7 +25,17 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  let sorted = array.sort()
+  console.log('sorted: ', sorted);
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] === (sorted[i + 1] - 1)) {
+      let missing = sorted[i] + 1;
+      let spliced = array.splice(i, 1, missing);
+      console.log('spliced: ', spliced);
+    }
+  }
 }
 
+missingNum([2, 3, 1, 5]);
 module.exports = missingNum;
