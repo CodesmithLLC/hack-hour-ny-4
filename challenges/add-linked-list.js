@@ -23,32 +23,58 @@ function Node(val) {
   this.next = null;
 }
 
+LinkedList.prototype.push = function(value) {
+
+  if(!this.head) {
+    this.head = new Node(value);
+    this.tail = this.head;
+    return;
+  }
+
+  let curr = this.head;
+  while(curr.next){
+    curr = curr.next;
+  }
+  curr.next = new Node(value);
+  this.tail = curr.next;
+
+};
+
 function addLinkedList(l1, l2) {
-  // console.log('l1: ', JSON.stringify(l1, null, 2));
-  // console.log('l2: ', JSON.stringify(l2, null, 2));
+  console.log('l1: ', JSON.stringify(l1, null, 2));
+  console.log('l2: ', JSON.stringify(l2, null, 2));
 
   if (!l2) return l1;
 
   let output = new LinkedList(); 
-  const sumOne = getSum(l1);
-  const sumTwo = getSum(l2);
+  const reversedSumOne = getSum(l1);
+  const reversedSumTwo = getSum(l2);
 
-  const outputSum = +sumOne.reverse().join('') + +sumTwo.reverse().join('');
+  const outputSum = +reversedSumOne.reverse().join('') + +reversedSumTwo.reverse().join('');
   let reversedNodes = outputSum.toString().split('');
 
-  let curr = output.head;
-  for (let i = reversedNodes.length - 1; i >= 0; i--) {
-    if (!curr) {
-      curr = new Node(+reversedNodes[i]);
-      output.head = curr;
-    } else {
-      curr.next = new Node(+reversedNodes[i]);
-      output.tail = curr.next;
-    }
 
+  for (let i = reversedNodes.length - 1; i >= 0; i--) {
+    console.log('i: ', i);
+    console.log('reversedNodes[i]: ', reversedNodes[i]);
+    output.push(new Node(reversedNodes[i]));
   }
+
+  return output;
+
 }
 
+let l1 = new LinkedList();
+l1.head = new Node(2);
+l1.head.next = new Node(1);
+l1.head.next.next = new Node(5);
+l1.tail = l1.head.next.next;
+
+let l2 = new LinkedList();
+l2.head = new Node(5);
+l2.head.next = new Node(9);
+l2.head.next.next = new Node(2);
+l2.tail = l2.head.next.next;
 
 getSum = (list) => {
   let sum = [];
