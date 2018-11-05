@@ -13,28 +13,22 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-  // want an array as that tracks indices (hours) and prices
-  // if max in the array and min in the array are the same, return 0 profit || invalid input
-  // return max - min to show profit 
-  // 9:30am = 0 10:30am = 60, 5:00pm = 450
+
   let max = stock_prices_yesterday[0];
   let min = stock_prices_yesterday[0];
-  stock_prices_yesterday.forEach(function(el) {
+  stock_prices_yesterday.forEach((el) => {
       if (el > max) {
          max = el;
       } else if (el < min) {
           min = el;
       }
   });
-  console.log('max: ', max);
-  console.log('min: ', min);
 
-//   && stock_prices_yesterday.length < 450
   if (max === min || !Array.isArray(stock_prices_yesterday)) return 0;
   return max - min;
 
 }
 
-console.log(bestProfit([500, 499, 500, 500]));
+console.log(bestProfit([500, 600, 500, 500]));
 
 module.exports = bestProfit;

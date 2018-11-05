@@ -75,6 +75,6 @@ getSum = (list) => {
   }
 }
 
-console.log(addLinkedList(l1, l2));
+// console.log(addLinkedList(l1, l2));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
