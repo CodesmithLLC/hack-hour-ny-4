@@ -23,40 +23,58 @@ function Node(val) {
   this.next = null;
 }
 
+LinkedList.prototype.push = function(value) {
+  if(!this.head) {
+    this.head = new Node(value);
+    this.tail = this.head;
+    return;
+  }
+
+  let curr = this.head;
+  while(curr.next){
+    curr = curr.next;
+  }
+  curr.next = new Node(value);
+  this.tail = curr.next;
+};
+
 function addLinkedList(l1, l2) {
   // console.log('l1: ', JSON.stringify(l1, null, 2));
   // console.log('l2: ', JSON.stringify(l2, null, 2));
 
-  // create an output LL
-  let output = new LinkedList; 
+  if (!l2) return l1;
 
-  // if length of the lls are different
-  // loop through the bigger one 
-    // add the values of each node directly to new LL until length of LL2 is the same 
+  let output = new LinkedList(); 
+  const reversedSumOne = getSum(l1);
+  const reversedSumTwo = getSum(l2);
 
-  // if the length of the lls are the same
-  // loop through LL1 from end to beginning
-     // add the LL1 last node's value to LL2 last node's value 
-     // create a node containing that sum to the output LL
-     // call helper func that reverses order of output LL, input node
+  const outputSum = +reversedSumOne.reverse().join('') + +reversedSumTwo.reverse().join('');
+  let reversedNodes = outputSum.toString().split('');
+
+
+  for (let i = reversedNodes.length - 1; i >= 0; i--) {
+    output.push(new Node(reversedNodes[i]));
+  }
+
+  return output;
+
 }
 
-let l1 = new LinkedList();
-l1.head = new Node(2);
-l1.head.next = new Node(1);
-l1.head.next.next = new Node(5);
-l1.tail = l1.head.next.next;
-// l1.next.next.next = new Node(5);
-let l2 = new LinkedList();
-l2.head = new Node(5);
-l2.head.next = new Node(9);
-l2.head.next.next = new Node(2);
-l2.tail = l2.head.next.next;
+getSum = (list) => {
+  let sum = [];
+  if (list.head) {
+    let curr = list.head;
+    while (curr) {
+      sum.push(curr.value);
+      curr = curr.next;
+    }
 
-console.log(addLinkedList(l1, l2));
-
-function reverseLinkedList(l3) {
-  // reverse list 
+    return sum;
+  } else {
+    return 0;
+  }
 }
+
+// console.log(addLinkedList(l1, l2));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
